@@ -1,0 +1,40 @@
+package com.hyva.idm.sass.sasspojo;
+
+public class DestinationMapPojo {
+    private Long id;
+    private String sourceName;
+    private String destinationmap;
+    private String status;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+
+    public String getDestinationmap() {
+        return destinationmap;
+    }
+
+    public void setDestinationmap(String destinationmap) {
+        this.destinationmap = destinationmap;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

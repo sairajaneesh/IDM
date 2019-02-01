@@ -1,0 +1,69 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+
+import javax.persistence.*;
+
+@Entity
+public class SassPermissionMaster extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long pmId;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description; //Sales (Pages)
+    private String saasStatus;
+    private String permissionMasterkey;
+    @OneToOne
+    private SassPermissionGroup sassPermissionGroupId;//Sales
+    @OneToOne
+    private SassPermissionMaster sassParentPM;
+
+    public Long getPmId() {
+        return pmId;
+    }
+
+    public void setPmId(Long pmId) {
+        this.pmId = pmId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    public String getPermissionMasterkey() {
+        return permissionMasterkey;
+    }
+
+    public void setPermissionMasterkey(String permissionMasterkey) {
+        this.permissionMasterkey = permissionMasterkey;
+    }
+
+    public SassPermissionGroup getSassPermissionGroupId() {
+        return sassPermissionGroupId;
+    }
+
+    public void setSassPermissionGroupId(SassPermissionGroup sassPermissionGroupId) {
+        this.sassPermissionGroupId = sassPermissionGroupId;
+    }
+
+    public SassPermissionMaster getSassParentPM() {
+        return sassParentPM;
+    }
+
+    public void setSassParentPM(SassPermissionMaster sassParentPM) {
+        this.sassParentPM = sassParentPM;
+    }
+}

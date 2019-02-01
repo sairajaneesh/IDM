@@ -1,0 +1,47 @@
+package com.hyva.idm.sass.sassmapper;
+
+import com.hyva.idm.sass.sassentities.SassOrders;
+import com.hyva.idm.sass.sasspojo.SassOrdersPojo;
+
+public class SassOrdersMapper {
+    public static SassOrders mapPojoToEntity(SassOrdersPojo sassOrdersPojo){
+        SassOrders sassOrders=new SassOrders();
+        sassOrders.setUsername(sassOrdersPojo.getUsername());
+        sassOrders.setPassword(sassOrdersPojo.getPassword());
+        sassOrders.setCompanyEmail(sassOrdersPojo.getCompanyEmail());
+        sassOrders.setCustomerName(sassOrdersPojo.getCustomerName());
+        sassOrders.setCompanyName(sassOrdersPojo.getCompanyName());
+        sassOrders.setCompanyAddress(sassOrdersPojo.getCompanyAddress());
+        sassOrders.setDeliveryType(sassOrdersPojo.getDeliveryType());
+        sassOrders.setNewsletter(sassOrdersPojo.getNewsletter());
+        sassOrders.setCompanyPhone(sassOrdersPojo.getCompanyPhone());
+        sassOrders.setPackagesSASSId(sassOrdersPojo.getPackagesSASSId());
+        sassOrders.setCompanyNo(sassOrdersPojo.getCompanyNo());
+//        sassOrders.setCountry(sassOrdersPojo.getCountry());
+//        sassOrders.setCurrency(sassOrdersPojo.getCurrency());
+        sassOrders.setFaxno(sassOrdersPojo.getFaxno());
+        sassOrders.setLanguage(sassOrdersPojo.getLanguage());
+        sassOrders.setGstRegistered(sassOrdersPojo.getGstRegistered());
+        sassOrders.setGstRegisteredDate(sassOrdersPojo.getGstRegisteredDate());
+        sassOrders.setIncorpDate(sassOrdersPojo.getIncorpDate());
+        sassOrders.setPan(sassOrdersPojo.getPan());
+//        sassOrders.setState(sassOrdersPojo.getState());
+        sassOrders.setWebsite(sassOrdersPojo.getWebsite());
+        return sassOrders;
+    }
+
+    public static SassOrdersPojo mapEntityToPojo(SassOrders sassOrders){
+        SassOrdersPojo sassOrdersPojo=new SassOrdersPojo();
+
+
+        return sassOrdersPojo;
+
+    }
+
+
+
+
+
+
+
+}

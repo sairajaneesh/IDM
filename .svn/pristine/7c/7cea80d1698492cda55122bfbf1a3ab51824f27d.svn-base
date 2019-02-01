@@ -1,0 +1,17 @@
+package com.hyva.idm.sass.sassrespositories;
+
+import com.hyva.idm.sass.sassentities.SassCustomer;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SassCustomerRepository extends CrudRepository<SassCustomer, Long> {
+
+
+    SassCustomer findByEmailAndLoginNameAndLoginPassword(String Email,String LoginName,String LoginPassword);
+
+
+    SassCustomer findByEmailAndLoginUniqueId(String Email,String LoginUniqueId);
+
+
+}

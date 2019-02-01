@@ -1,0 +1,43 @@
+package com.hyva.idm.sass.sasspojo;
+
+public class SassPermissionGroupPojo {
+
+
+    private Long pgId;
+    private String featureName; //Sales
+
+    private String saasStatus;
+    private String permissionGroupkey;
+
+    public Long getPgId() {
+        return pgId;
+    }
+
+    public void setPgId(Long pgId) {
+        this.pgId = pgId;
+    }
+
+    public String getFeatureName() {
+        return featureName;
+    }
+
+    public void setFeatureName(String featureName) {
+        this.featureName = featureName;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    public String getPermissionGroupkey() {
+        return permissionGroupkey;
+    }
+
+    public void setPermissionGroupkey(String permissionGroupkey) {
+        this.permissionGroupkey = permissionGroupkey;
+    }
+}

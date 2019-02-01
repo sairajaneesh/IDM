@@ -1,0 +1,32 @@
+package com.hyva.idm.sass.sasspojo;
+
+public class SassPermissionMasterPojo {
+
+    private String description; //Sales (Pages)
+    private String saasStatus;
+    private String permissionMasterkey;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    public String getPermissionMasterkey() {
+        return permissionMasterkey;
+    }
+
+    public void setPermissionMasterkey(String permissionMasterkey) {
+        this.permissionMasterkey = permissionMasterkey;
+    }
+}

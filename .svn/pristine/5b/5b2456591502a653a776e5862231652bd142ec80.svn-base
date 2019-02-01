@@ -1,0 +1,71 @@
+package com.hyva.idm.sass.sassentities;
+
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+public class CartCustomerLink {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long cartCustId;
+    private String clientId;
+    private String clientSecret;
+    private String status;
+    @OneToOne
+    private SassCustomer customerId;
+    @OneToOne
+    private Cartregistration cartId;
+
+
+    public Long getCartCustId() {
+        return cartCustId;
+    }
+
+    public void setCartCustId(Long cartCustId) {
+        this.cartCustId = cartCustId;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public SassCustomer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(SassCustomer customerId) {
+        this.customerId = customerId;
+    }
+
+    public Cartregistration getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Cartregistration cartId) {
+        this.cartId = cartId;
+    }
+}

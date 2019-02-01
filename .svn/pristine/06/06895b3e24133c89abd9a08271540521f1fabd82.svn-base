@@ -1,0 +1,16 @@
+package com.hyva.idm.sass.sasspojo;
+
+import com.hyva.idm.sass.sassentities.CustomerNotifications;
+import com.hyva.idm.sass.sassentities.SassCompany;
+import com.hyva.idm.sass.sassentities.SassCustomer;
+import com.hyva.idm.sass.sassentities.TransactionsData;
+import lombok.Data;
+
+import java.util.List;
+@Data
+public class CustomerListBasedOnToRegNoPojo {
+    public List<SassCompany> sassCustomerList;
+    public List<CustomerNotifications> customerNotificationsList;
+    public List<TransactionsData> transactionsDataList;
+
+  }

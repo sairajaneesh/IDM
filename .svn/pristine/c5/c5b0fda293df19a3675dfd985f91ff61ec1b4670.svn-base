@@ -1,0 +1,14 @@
+package com.hyva.idm.sass.sassrespositories;
+
+import com.hyva.idm.sass.sassentities.SassCompany;
+import com.hyva.idm.sass.sassentities.SassCustomer;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface SassCompanyRepository extends CrudRepository<SassCompany, Long> {
+    SassCompany findDistinctByEmailAndSassOrdersId(String Email,Long orderId);
+    SassCompany findDistinctByLoginUniqueId(String sassToken);
+    List<SassCompany> findByHiConnectCompnyRegNo(String fromRegno);
+    SassCompany getByHiConnectCompnyRegNo(String fromRegno);
+}

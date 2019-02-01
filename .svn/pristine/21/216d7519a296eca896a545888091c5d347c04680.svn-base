@@ -1,0 +1,47 @@
+package com.hyva.idm.sass.sassendpoints;
+import com.hyva.idm.pojo.IDMResponse;
+import com.hyva.idm.sass.sassconstant.HiAccountConstant;
+import com.hyva.idm.sass.sassconstant.HiConnectConstants;
+import com.hyva.idm.sass.sassentities.SassOrders;
+import com.hyva.idm.sass.sassservice.HiAccountsService;
+import com.hyva.idm.sass.sassservice.SassOrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Created by azgar on 1/6/18.
+ */
+@RestController
+@RequestMapping(HiAccountConstant.HI_ACCOUNT_SERVICES)
+public class HiAccountsEndPoint {
+
+    @Autowired
+    HiAccountsService hiAccountsService;
+
+
+    @RequestMapping(value = "/getRegistration",
+            method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getRegistration(@RequestParam("license_key") String licensekey){
+        SassOrders sassOrders=hiAccountsService.validateLicensekey(licensekey);
+        sassOrders = hiAccountsService.generateParentToken(sassOrders);
+        return new IDMResponse(HttpStatus.OK.value(), "success",sassOrders);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,32 @@
+package com.hyva.idm.sass.sassconstant;
+
+public class HiConnectConstants {
+    private static final String ActivationServer = "http://license.hiaccounts.com:9090/algas/";
+    public static final  String HI_CONNECT_SERVICES = "/hiConnectService";
+    public static final  String HI_CONNECT_VERSION = "/v4";
+    public static final  String HI_CONNECT_COMPANY_SEARCH = "/checkcompany";
+    public static final  String HI_CONNECT_NOTIFICATIONS = "/getnotifications";
+    public static final  String HI_CONNECT_FORM_DATA = "/insertdata";
+    public static final  String HI_CONNECT_BROADCAST_PO_DATA = "/insertdata1";
+    public static final  String HI_CONNECT_BROADCAST_SP_DATA = "/insertdata2";
+    public static final  String HI_CONNECT_BROADCAST_SI_DATA = "/insertdata3";
+    public static final  String HI_CONNECT_NOTIFICATION_COMPANY_FOR_SUPPLIER= "/insertdata4";
+    public static final  String HI_CONNECT_SET_NOTIFICATION_COMPANY = "/customerdata";
+    public static final  String HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION_FOR_SUPP= "/supplierdata";
+    public static final  String HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION = "/custstatuschange";
+    public static final  String HI_CONNECT_NOTIFICATION_TRANSACTION_DATA = "/notify_statuschange";
+    public static final  String HI_CONNECT_STATUS_ACCEPTED = "/Accepted";
+    public static final  String HI_CONNECT_PURCHASE="/Purchase";
+    public static final  String HI_CONNECT_SALES="/Sales";
+    public static final  String HI_CONNECT_STATUS_ACTIVE = "ACTIVE";
+    public static final  String HI_CONNECT_STATUS_INACTIVE = "INACTIVE";
+    public static final  String HI_CONNECT_STATUS_APPROVED = "APPROVED";
+    public static final  String HI_CONNECT_STATUS_PENDING = "PENDING";
+    public static final  String HI_CONNECT_STATUS_REJECTED = "REJECTED";
+    public static final  String HI_CONNECT_STATUS_HOLD = "HOLD";
+<<<<<<< .mine
+    public static final  String  HI_ACCOUNT_SERVICES="/hiAccountService";
+=======
+
+>>>>>>> .r109
+}

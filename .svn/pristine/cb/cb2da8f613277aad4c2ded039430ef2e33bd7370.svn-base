@@ -1,0 +1,36 @@
+package com.hyva.idm.sass.sassmapper;
+
+import com.hyva.idm.sass.sassentities.SassOrders;
+import com.hyva.idm.sass.sasspojo.SassOrdersPojo;
+
+public class SassOrdersMapper {
+    public static SassOrders mapPojoToEntity(SassOrdersPojo sassOrdersPojo){
+        SassOrders sassOrders=new SassOrders();
+        sassOrders.setCustomerName(sassOrdersPojo.getCustomerName());
+        sassOrders.setCompanyName(sassOrdersPojo.getCompanyName());
+        sassOrders.setCompanyAddress(sassOrdersPojo.getCompanyAddress());
+        sassOrders.setDeliveryType(sassOrdersPojo.getDeliveryType());
+        sassOrders.setCompanyEmail(sassOrdersPojo.getCompanyEmail());
+        sassOrders.setNewsletter(sassOrdersPojo.getNewsletter());
+        sassOrders.setCompanyPhone(sassOrdersPojo.getCompanyPhone());
+        sassOrders.setUsername(sassOrdersPojo.getUsername());
+        sassOrders.setPassword(sassOrdersPojo.getPassword());
+        sassOrders.setPackagesSASSId(sassOrdersPojo.getPackagesSASSId());
+        return sassOrders;
+    }
+
+    public static SassOrdersPojo mapEntityToPojo(SassOrders sassOrders){
+        SassOrdersPojo sassOrdersPojo=new SassOrdersPojo();
+
+
+        return sassOrdersPojo;
+
+    }
+
+
+
+
+
+
+
+}

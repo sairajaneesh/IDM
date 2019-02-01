@@ -1,0 +1,153 @@
+package com.hyva.idm.entity;
+
+import javax.persistence.*;
+import java.util.Set;
+
+/**
+ * Created by tnataraj on 1/6/18.
+ */
+@Entity
+public class UserEntity extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String userName;
+    private String email;
+    private String password;
+    private boolean active;
+
+    @ManyToOne
+    private CompanyEntity companyId;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    Set<ModuleEntity> moduleEntitySet;
+
+
+    /**
+     * Gets userName.
+     *
+     * @return Value of userName.
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * Gets password.
+     *
+     * @return Value of password.
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets new email.
+     *
+     * @param email New value of email.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Gets active.
+     *
+     * @return Value of active.
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * Sets new password.
+     *
+     * @param password New value of password.
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return Value of id.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Sets new id.
+     *
+     * @param id New value of id.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Sets new userName.
+     *
+     * @param userName New value of userName.
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
+     * Sets new active.
+     *
+     * @param active New value of active.
+     */
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    /**
+     * Gets email.
+     *
+     * @return Value of email.
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Sets new companyId.
+     *
+     * @param companyId New value of companyId.
+     */
+    public void setCompanyId(CompanyEntity companyId) {
+        this.companyId = companyId;
+    }
+
+    /**
+     * Gets companyId.
+     *
+     * @return Value of companyId.
+     */
+    public CompanyEntity getCompanyId() {
+        return companyId;
+    }
+
+    /**
+     * Gets moduleEntitySet.
+     *
+     * @return Value of moduleEntitySet.
+     */
+    public Set<ModuleEntity> getModuleEntitySet() {
+        return moduleEntitySet;
+    }
+
+    /**
+     * Sets new moduleEntitySet.
+     *
+     * @param moduleEntitySet New value of moduleEntitySet.
+     */
+    public void setModuleEntitySet(Set<ModuleEntity> moduleEntitySet) {
+        this.moduleEntitySet = moduleEntitySet;
+    }
+}

@@ -1,0 +1,15 @@
+package com.hyva.idm.sass.sassrespositories;
+
+import com.hyva.idm.sass.sassentities.DestinationType;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface DestinationTypeRepository extends CrudRepository<DestinationType,Long> {
+<<<<<<< .mine
+    DestinationType findBydescription(String description);
+=======
+    List<DestinationType> findByDocType(String sourceType);
+
+>>>>>>> .r186
+}

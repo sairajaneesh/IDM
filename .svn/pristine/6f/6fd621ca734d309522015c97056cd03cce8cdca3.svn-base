@@ -1,0 +1,82 @@
+package com.hyva.idm.sass.sassendpoints;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.hyva.idm.pojo.IDMResponse;
+import com.hyva.idm.sass.sassconstant.HiAccountConstant;
+import com.hyva.idm.sass.sassconstant.HiConnectConstants;
+import com.hyva.idm.sass.sassentities.*;
+import com.hyva.idm.sass.sasspojo.subscriptionDetailsLoginPojo;
+import com.hyva.idm.sass.sassservice.HiAccountsService;
+import com.hyva.idm.sass.sassservice.SassOrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+
+/**
+ * Created by azgar on 1/6/18.
+ */
+@RestController
+@RequestMapping(HiAccountConstant.HI_ACCOUNT_SERVICES)
+public class HiAccountsEndPoint {
+
+    @Autowired
+    HiAccountsService hiAccountsService;
+
+    @RequestMapping(value = "/v3/getRegistration",
+            method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getRegistration(@RequestBody String licensekey){
+        SassOrders sassOrders=hiAccountsService.validateLicensekey(licensekey);
+        sassOrders = hiAccountsService.generateParentToken(sassOrders);
+        hiAccountsService.sassOrdersSave(sassOrders);
+        return new IDMResponse(HttpStatus.OK.value(), "success",sassOrders);
+    }
+
+    @RequestMapping(value="/v3/getSubscription",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getSubscription(@RequestBody String subscription){
+        SassOrders sassOrders = hiAccountsService.getSassOrderDetails(subscription);
+        SassSubscriptions sassSubscriptions=hiAccountsService.getSubscriptionDetails(Long.parseLong(sassOrders.getSassSubscriptionsId().getSubscriptionId().toString()));
+        SassCustomer sassCustomer = hiAccountsService.getSassCustomerDetails(sassOrders.getCustomerName());
+        subscriptionDetailsLoginPojo subDetailsLoginPojo = new subscriptionDetailsLoginPojo();
+        subDetailsLoginPojo.setSassSubscriptionsObj(sassSubscriptions);
+        subDetailsLoginPojo.setSassOrdersObj(sassOrders);
+        subDetailsLoginPojo.setSassCustomerObj(sassCustomer);
+        return new IDMResponse(HttpStatus.OK.value(), "success",subDetailsLoginPojo);
+    }
+
+    @RequestMapping(value = "/v3/createCompany",
+            method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse createCompany(@RequestBody String companyData){
+        Gson gson = new Gson();
+        SassCompany sassCompany = gson.fromJson(companyData,SassCompany.class);
+        SassCompany responseType = hiAccountsService.sassCompanySave(sassCompany);
+        return new IDMResponse(HttpStatus.OK.value(), "success",responseType);
+    }
+
+    @RequestMapping(value = "/v3/companyAdittion",
+            method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse companyAdittion(@RequestBody String companyData){
+        Gson gson = new Gson();
+        SassCompany sassCompany = gson.fromJson(companyData,SassCompany.class);
+        String sassTokenResponse = hiAccountsService.sassTokenChecking(sassCompany.getLoginUniqueId());
+        if(sassTokenResponse == "success"){
+            SassCompany sassCompanyObj = hiAccountsService.sassCompanySave(sassCompany);
+            return new IDMResponse(HttpStatus.OK.value(), "success",sassCompanyObj);
+        }else{
+            SassCompany sassCompanyObj = hiAccountsService.sassCompanyObj(sassCompany.getLoginUniqueId());
+            return new IDMResponse(HttpStatus.OK.value(), "Already Exist",sassCompanyObj);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+}

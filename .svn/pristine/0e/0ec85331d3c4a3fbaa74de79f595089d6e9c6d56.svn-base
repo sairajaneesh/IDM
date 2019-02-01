@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" >
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Order List</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="panel">
+                    <div class="panel-body" style="height: 65px;">
+                        <div class="col-md-4 col-lg-3 col-sm-5 col-xs-5">
+                            <form class="form-horizontal ng-pristine ng-valid">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-7 col-md-9 col-sm-9">
+
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default hi_btn"  ng-click="addOrderListPopulate()">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="fixed-table-container">
+                        <div class="table_wrap fixed-table-container-inner">
+                            <div class="header-background"> </div>
+                            <table data-toggle="table" data-cache="false" data-height="299"  style="margin-bottom: 0px;" class="hi_table table table-hover table-bordered table-striped table-fixed-header">
+                                <thead>
+                                <tr>
+                                    <th data-field="cmpnyname"><div class="th-inner">Company Name</div></th>
+                                    <th data-field="deltype"><div class="th-inner">Delivery Type</div></th>
+                                    <th data-field="name"><div class="th-inner">Name</div></th>
+                                    <th data-field="email"><div class="th-inner">Email</div></th>
+                                </tr>
+                                </thead>
+                                <tbody id="parentTable">
+                                <tr ng-repeat="order in orderList| filter:searchText">
+                                    <td>{{order.companyName}}</td>
+                                    <td>{{order.deliveryType}}</td>
+                                    <td>{{order.customerName}}</td>
+                                    <td>{{order.companyEmail}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="modal fade ExchangeRate" tabindex="-1" id="add_new_orderlist_modal" role="dialog" data-backdrop="static"
+                         aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content checkout">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 id = "order-title" class="modal-title">Add Order List</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <form class="form-horizontal" name="mail">
+                                                <fieldset>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Company Name</label>
+                                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                            <input id="cmpnyname" name="cmpnyname"
+                                                                   type="text" placeholder="Company Name"
+                                                                   ng-model="cmpnynameText"
+                                                                   class="form-control input-md" autocomplete="off">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="hidden" ng-model="setupobj.SassOrdersId" value="{{setupobj.SassOrdersId}}"/>
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Address</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                           <textarea id="SupplierEditAddress" name="SupplierAddress" maxlength="255"
+                                                                     ng-readonly="operation === 'Return'"
+                                                                     type="text" placeholder="Address"
+                                                                     ng-model="addressText"
+                                                                     class="form-control input-md" required>
+                                                          </textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Email</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="email" name="email"
+                                                                   ng-readonly="operation === 'Return'"
+                                                                   ng-pattern="word" maxlength="255"
+                                                                   type="text" placeholder="Email"
+                                                                   ng-model="emailText"
+                                                                   class="form-control input-md">
+                                                            <p class="error" ng-show="mail.email.$error.pattern">Enter Valid EmailId</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Delivery Type</label>
+                                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                            <input id="deliveryType" name="deliveryType"
+                                                                   type="text" placeholder="Delivery Type"
+                                                                   ng-model="deliveryTypeText"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Name</label>
+                                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                            <input id="name" name="name"
+                                                                   type="text" placeholder=" Name"
+                                                                   ng-model="nameText"
+                                                                   class="form-control input-md" autocomplete="off">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">NewsLetter</label>
+                                                        <div class="col-md-6 col-sm-6" >
+                                                            <select name="newsLetter" id="newsLetter" ng-model="newsLetterText" ng-init="newsLetterText='Active'"class="form-control input-md">
+                                                                <option value="Active">Active</option>
+                                                                <option value="InActive">InActive</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">PackageSASSId</label>
+                                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                            <input id="pkgsassid" name="pkgsassid"
+                                                                   type="text" placeholder="PackageSASSId"
+                                                                   ng-model="pkgsassidText"
+                                                                   class="form-control input-md"  required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="phone_no">Phone</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="phoneNo" name="phoneNo"
+                                                                   ng-pattern="/^[0-9]*$/"
+                                                                   type="text" placeholder="Phone"
+                                                                   ng-model="phoneNoText" Num-with-space
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-sm-4 control-label" for="">SubscriptionId</label>
+                                                            <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                                <select id="subscriptionName" name="subscriptionNameId" ng-model="subscriptionNameId" ng-options="subscription.subscriptionName as
+											             subscription.subscriptionName for subscription in subscriptionList" class="form-control input-md">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Company no</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="Company no" name="Company no"
+                                                                   type="text" placeholder="Company no"
+                                                                   ng-model="companyno"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">PAN</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="Pan" name="Pan"
+                                                                   type="text" placeholder="Pan"
+                                                                   ng-model="Pan"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Incorp Date</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="incorpdate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                                            <span class="input-group-btn">
+                                     <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Fax No</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="faxno" name="faxno"
+                                                                   type="text" placeholder="faxno"
+                                                                   ng-model="faxno"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <!-- Text input-->
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Language</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="language" name="language"
+                                                                   type="text" placeholder="language"
+                                                                   ng-model="language"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Website</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="website" name="website"
+                                                                   type="text" placeholder="website"
+                                                                   ng-model="website"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Country</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="country" name="country"
+                                                                   type="text" placeholder="country"
+                                                                   ng-model="country"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Select Basic -->
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Currency</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="currency" name="currency"
+                                                                   type="text" placeholder="currency"
+                                                                   ng-model="currency"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <!-- Select Basic -->
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">State</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="state" name="state"
+                                                                   type="text" placeholder="state"
+                                                                   ng-model="state"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">GST Registered?</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="gstregstered" name="gstregstered"
+                                                                   type="text" placeholder="gstregstered"
+                                                                   ng-model="gstregstered"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">GST Registered Date</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="gstregstereddate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                                            <span class="input-group-btn">
+                                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Username</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="Username" name="Username"
+                                                                   type="text" placeholder="Username"
+                                                                   ng-model="userText"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 col-sm-4 control-label" for="">Password</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <input id="Password" name="Password"
+                                                                   type="text" placeholder="Password"
+                                                                   ng-model="pwdText"
+                                                                   class="form-control input-md" >
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-default" data-toggle="modal"
+                                            data-target=".print-me"  ng-click="saveOrderList('add_new_orderlist_modal')">Save
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-click="removeOrderListDetails()" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                    </body>
+</html>

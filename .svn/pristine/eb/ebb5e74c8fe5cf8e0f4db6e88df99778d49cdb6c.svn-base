@@ -1,0 +1,60 @@
+package com.hyva.idm.sass.sasspojo;
+
+
+public class AddOnnPojo {
+
+    private Long adoneId;
+    private String addonName;
+    private String addonPrice;
+    private String addonPermission;
+    private String status;
+    private String subscriptionId;
+
+    public String getSubscriptionId() {
+        return subscriptionId;
+    }
+
+    public void setSubscriptionId(String subscriptionId) {
+        this.subscriptionId = subscriptionId;
+    }
+
+    public Long getAdoneId() {
+        return adoneId;
+    }
+
+    public void setAdoneId(Long adoneId) {
+        this.adoneId = adoneId;
+    }
+
+    public String getAddonName() {
+        return addonName;
+    }
+
+    public void setAddonName(String addonName) {
+        this.addonName = addonName;
+    }
+
+    public String getAddonPrice() {
+        return addonPrice;
+    }
+
+    public void setAddonPrice(String addonPrice) {
+        this.addonPrice = addonPrice;
+    }
+
+    public String getAddonPermission() {
+        return addonPermission;
+    }
+
+    public void setAddonPermission(String addonPermission) {
+        this.addonPermission = addonPermission;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

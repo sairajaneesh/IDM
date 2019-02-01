@@ -1,0 +1,67 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.UUID;
+
+@Entity
+@Data
+public class SassCompany extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long compnayId;
+    private String companyName;
+    private String companyAddress;
+    private String companyEmail;
+    private String username;
+    private String password;
+    private String loginUniqueId;
+    private String status;
+    private String companyType;
+    private String companyLoginId;
+    private String companyLoginPassword;
+    private String companyNo;
+    private String language;
+    private String pan;
+    private Date incorpDate;
+    private Long faxno;
+    private String website;
+    private String customerName;
+    private String customerEmail;
+    private String customerAddress;
+    private String customerNumber;
+    private String companyPhone;
+    private String companyRegistrationNo;
+    private String companyGSTno;
+    private String  deliveryType;//desktop r cloud
+    private String  packagesSASSId;
+    private String  companySubscriptionId;
+    private String gstRegistered;
+    private Date gstRegisteredDate;
+    @Column(unique = true)
+    private String licenceKey;
+    private String  newsletter;
+    private String postingStatus;
+    @OneToOne
+    private SassSubscriptions sassSubscriptionsId;
+    @Column(unique = true, nullable = false)
+    private String hiConnectCompnyRegNo = UUID.randomUUID().toString().toUpperCase().replace("-", "").substring(0,16);
+    private String parentCompanyRegNo;
+    private Date loginUniqueIdExpiry;
+    @OneToOne
+    private SassOrders sassOrdersId;
+    @OneToOne
+    private SassCustomer sassCustomerId;
+    @OneToOne
+    private SassCountry countryId;
+    @OneToOne
+    private SassCurrency currencyId;
+    @OneToOne
+    private SaasState stateId;
+    @OneToOne
+    private SassUser sassUserId;
+}

@@ -1,0 +1,36 @@
+package com.hyva.idm.sass.sasspojo;
+
+import com.hyva.idm.sass.sassentities.*;
+
+import java.util.List;
+
+public class subscriptionDetailsLoginPojo {
+
+    public SassSubscriptions sassSubscriptionsObj;
+    public SassOrders sassOrdersObj;
+    public SassCustomer sassCustomerObj;
+
+    public SassSubscriptions getSassSubscriptionsObj() {
+        return sassSubscriptionsObj;
+    }
+
+    public void setSassSubscriptionsObj(SassSubscriptions sassSubscriptionsObj) {
+        this.sassSubscriptionsObj = sassSubscriptionsObj;
+    }
+
+    public SassOrders getSassOrdersObj() {
+        return sassOrdersObj;
+    }
+
+    public void setSassOrdersObj(SassOrders sassOrdersObj) {
+        this.sassOrdersObj = sassOrdersObj;
+    }
+
+    public SassCustomer getSassCustomerObj() {
+        return sassCustomerObj;
+    }
+
+    public void setSassCustomerObj(SassCustomer sassCustomerObj) {
+        this.sassCustomerObj = sassCustomerObj;
+    }
+}

@@ -1,0 +1,61 @@
+package com.hyva.idm.sass.sasspojo;
+
+import java.util.Date;
+
+public class CompanyPermissionPojo {
+    private String description;
+    private Long pmId;
+    private String status;
+    private int validity;
+    private Date fromDate;
+    private Date toDate;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getPmId() {
+        return pmId;
+    }
+
+    public void setPmId(Long pmId) {
+        this.pmId = pmId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getValidity() {
+        return validity;
+    }
+
+    public void setValidity(int validity) {
+        this.validity = validity;
+    }
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+}

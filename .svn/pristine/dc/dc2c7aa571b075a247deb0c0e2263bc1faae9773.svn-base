@@ -1,0 +1,95 @@
+package com.hyva.idm.entity;
+
+import javax.persistence.*;
+
+/**
+ * Created by tnataraj on 1/15/18.
+ */
+@Entity
+public class ModuleEntity extends BaseEntity<String> {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(unique = true)
+    private String moduleName;
+
+    private String description;
+
+    @Column(unique = true)
+    private String urlPrefix;
+
+    /**
+     * Gets id.
+     *
+     * @return Value of id.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Gets moduleName.
+     *
+     * @return Value of moduleName.
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    /**
+     * Sets new id.
+     *
+     * @param id New value of id.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Sets new moduleName.
+     *
+     * @param moduleName New value of moduleName.
+     */
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+    /**
+     * Sets new description.
+     *
+     * @param description New value of description.
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * Gets urlPrefix.
+     *
+     * @return Value of urlPrefix.
+     */
+    public String getUrlPrefix() {
+        return urlPrefix;
+    }
+
+    /**
+     * Sets new urlPrefix.
+     *
+     * @param urlPrefix New value of urlPrefix.
+     */
+    public void setUrlPrefix(String urlPrefix) {
+        this.urlPrefix = urlPrefix;
+    }
+
+    /**
+     * Gets description.
+     *
+     * @return Value of description.
+     */
+    public String getDescription() {
+        return description;
+    }
+}

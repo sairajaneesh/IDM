@@ -1,0 +1,45 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+public class SassSubscriptions extends BaseEntity<String> {
+
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long subscriptionId;
+  private String subscriptionName;
+  private String validity;
+  private String status;
+  private String validityType;
+  private String subscriptionFor;
+  private String users;
+  private Long companies;
+  private Long activeUsers;
+  private String hiAccount;
+  private String hiSync;
+
+  @ManyToOne
+  private SassPackages packageId;
+
+  private String originalCharge;
+  private String version;
+
+  @Column(name = "permission", columnDefinition = "mediumblob")
+  private String permission;
+  private String addonPermission;
+
+  public SassSubscriptions(Long subscriptionId) {
+    this.subscriptionId=subscriptionId;
+  }
+
+  public SassSubscriptions() {
+
+  }
+}

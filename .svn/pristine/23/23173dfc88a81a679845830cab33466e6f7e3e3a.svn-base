@@ -1,0 +1,32 @@
+
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Hi Connect</div>
+            </h2>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/customernotification">
+                    <div class="custom_notif">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">customer notification</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/transactionsdata">
+                    <div class="trans_data">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Transactions Data</div>
+                    </div>
+                </a>
+            </div>
+</body>
+</html>

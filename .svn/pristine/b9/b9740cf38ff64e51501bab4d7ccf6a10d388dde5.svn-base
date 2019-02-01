@@ -1,0 +1,112 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+
+import javax.persistence.*;
+
+@Entity
+public class SassPayment extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long paymentSASSId;
+    @ManyToOne
+    private SassOrders ordersSASS;
+    private String modeOfPayment;
+    private String amount;
+    private String vouchername;
+    private String transactionNo;
+    private String transactionDate;
+    private String bankname;
+    private String chequenumber;
+    private String chequeDate;
+    private String PaymentStatus;//cheque or cash or voucher deposit status pending
+
+    public long getPaymentSASSId() {
+        return paymentSASSId;
+    }
+
+    public void setPaymentSASSId(long paymentSASSId) {
+        this.paymentSASSId = paymentSASSId;
+    }
+
+    public SassOrders getOrdersSASS() {
+        return ordersSASS;
+    }
+
+    public void setOrdersSASS(SassOrders ordersSASS) {
+        this.ordersSASS = ordersSASS;
+    }
+
+    public String getModeOfPayment() {
+        return modeOfPayment;
+    }
+
+    public void setModeOfPayment(String modeOfPayment) {
+        this.modeOfPayment = modeOfPayment;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getVouchername() {
+        return vouchername;
+    }
+
+    public void setVouchername(String vouchername) {
+        this.vouchername = vouchername;
+    }
+
+    public String getTransactionNo() {
+        return transactionNo;
+    }
+
+    public void setTransactionNo(String transactionNo) {
+        this.transactionNo = transactionNo;
+    }
+
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    public String getBankname() {
+        return bankname;
+    }
+
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
+    }
+
+    public String getChequenumber() {
+        return chequenumber;
+    }
+
+    public void setChequenumber(String chequenumber) {
+        this.chequenumber = chequenumber;
+    }
+
+    public String getChequeDate() {
+        return chequeDate;
+    }
+
+    public void setChequeDate(String chequeDate) {
+        this.chequeDate = chequeDate;
+    }
+
+    public String getPaymentStatus() {
+        return PaymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        PaymentStatus = paymentStatus;
+    }
+}

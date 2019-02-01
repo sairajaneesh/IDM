@@ -1,0 +1,62 @@
+package com.hyva.idm.sass.sasspojo;
+
+public class SassCountryPojo {
+
+
+    private Long countryId;
+    private String countryName;
+    private String flag;
+    private String locationId;
+    private String useraccount_id;
+    private String status;
+
+    public Long getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
+    }
+
+    public String getUseraccount_id() {
+        return useraccount_id;
+    }
+
+    public void setUseraccount_id(String useraccount_id) {
+        this.useraccount_id = useraccount_id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+}

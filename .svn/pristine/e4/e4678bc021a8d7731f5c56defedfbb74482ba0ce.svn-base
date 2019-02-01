@@ -1,0 +1,54 @@
+package com.hyva.idm.sass.sasspojo;
+
+import javax.persistence.Id;
+
+public class PermissionGroupDTO {
+    @Id
+    private Long pgId;
+    private String featureName; //Sales
+    private String description;
+    private String pgkey;
+    public String getPgkey() {
+        return pgkey;
+    }
+
+    public void setPgkey(String pgkey) {
+        this.pgkey = pgkey;
+    }
+
+    private String saasStatus;
+
+    public Long getPgId() {
+        return pgId;
+    }
+
+    public void setPgId(Long pgId) {
+        this.pgId = pgId;
+    }
+
+    public String getFeatureName() {
+        return featureName;
+    }
+
+    public void setFeatureName(String featureName) {
+        this.featureName = featureName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+
+}

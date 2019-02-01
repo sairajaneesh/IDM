@@ -1,0 +1,168 @@
+app.controller('subscriptionCtrl',
+    function ($scope, $rootScope, $http, $location, $filter, Notification) {
+        $scope.hiposServerURL = "/services";
+        $scope.permsubscription=[];
+
+
+        $scope.removeSubscriptionDetails = function () {
+            $scope.subscriptionNameText="";
+            $scope.validityText="";
+            $scope.validityTypeText="";
+            $scope.subscriptionForText="";
+            $scope.orgnlchrgText="";
+            $scope.versionText="";
+            $scope.permissionText="";
+            $scope.addonPerText="";
+        };
+
+        $scope.getSubscriptionList = function () {
+            $(".loader").css("display", "block");
+            $http.post($scope.hiposServerURL  + "/getSubscriptionList").then(function (response) {
+                var data = response.data.object;
+                console.log(data);
+                $scope.subscriptionList = data;
+
+            }, function (error) {
+                Notification.error({
+                    message: 'Something went wrong, please try again',
+                    positionX: 'center',
+                    delay: 2000
+                });
+            })
+
+        };
+
+        $scope.getSubscriptionList();
+        $scope.addNewSubscription = function () {
+            $scope.subscriptionNameText="";
+            $scope.validityText="";
+            $scope.validityTypeText="";
+            $scope.subscriptionForText="";
+            $scope.subsStatusText="Active";
+            $scope.orgnlchrgText="";
+            $scope.versionText="";
+            $scope.permissionText="";
+            $scope.addonPerText="";
+            $scope.removeSubscriptionDetails();
+            $("#title").text("Add Subscription");
+            $("#add_new_subscription_modal").modal('show');
+        };
+        $scope.selectedList={};
+        $scope.addData=function (status,name) {
+            $scope.selectedList[name]=status;
+        }
+        $scope.getPermissions = function () {
+            $http.post($scope.hiposServerURL + "/getPermissionRights").then(function (response) {
+                var data =response.data;
+                $scope.permissionList =data;
+                $("#userPermission3").modal('show');
+                // $("#Permissions").modal('show');
+                console.log(data);
+            })
+        }
+        $scope.list=[];
+        $scope.addlist=function () {
+            angular.forEach($scope.permissionList,function (value,key) {
+                if(value.status!='InActive') {
+                    $scope.list.push({
+                        "id": value.id,
+                        "description": key,
+                        "status": value.status
+                    })
+                }
+                angular.forEach(value.children,function (value1,key1) {
+                    if(value1.status !='InActive') {
+                        $scope.list.push({
+                            "id": value1.id,
+                            "description": key1,
+                            "status": value1.status
+                        })
+                    }
+                    angular.forEach(value1.children,function (value2,key2) {
+                        if(value2.status !='InActive') {
+                            $scope.list.push({
+                                "id": value2.id,
+                                "description": key2,
+                                "status": value2.status
+                            })
+                        }
+                        angular.forEach(value2.children,function (value3,key3) {
+                            if(value3.status!='InActive') {
+                                $scope.list.push({
+                                    "id": value3.id,
+                                    "description": key3,
+                                    "status": value3.status
+                                })
+                            }
+                            angular.forEach(value3.children,function (value4,key4) {
+                                if(value4.status !='InActive') {
+                                    $scope.list.push({
+                                        "id": value4.id,
+                                        "description": key4,
+                                        "status": value4.status
+                                    })
+                                }
+                            })
+                        })
+                    })
+                })
+            })
+        }
+        $scope.saveNewSubscription = function () {
+            $scope.addlist()
+            if (angular.isUndefined($scope.subscriptionNameText) || $scope.subscriptionNameText == '') {
+                Notification.warning({message: 'Subscription Name can not be Empty', positionX: 'center', delay: 2000});
+            }
+            else{
+                var saveSubscriptionDetails;
+                saveSubscriptionDetails = {
+                    subscriptionName: $scope.subscriptionNameText,
+                    validity: $scope.validityText,
+                    validityType: $scope.validityTypeText,
+                    subscriptionFor:$scope.subscriptionForText,
+                    status:$scope.statusText,
+                    originalCharge:$scope.orgnlchrgText,
+                    version:$scope.versionText,
+                    permission:angular.toJson($scope.list),
+                    addonPermission:$scope.addonPerText
+                };
+                $http.post("/services/saveNewSubscription" , angular.toJson(saveSubscriptionDetails)).then(function (response) {
+                    var data = response.data;
+                    if(data==""){
+                        Notification.error({message: 'Already exists', positionX: 'center', delay: 2000});
+                    }
+                    else {
+                        $("#add_new_subscription_modal").modal('hide');
+                        Notification.success({message: 'Subscription Created  successfully', positionX: 'center', delay: 2000});
+                        $scope.removeSubscriptionDetails();
+                        $scope.getSubscriptionList();
+                    }
+                },function (error) {
+                    Notification.error({
+                        message: 'Something went wrong, please try again',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                });
+            }
+        };
+
+
+        // $scope.getPermissionMasterList = function () {
+        //     $(".loader").css("display", "block");
+        //     $http.get($scope.hiposServerURL  + "/getPermissionMasterList").then(function (response) {
+        //          var data = response.data;
+        //             $scope.permissionMasterList = angular.copy(data);
+        //          //   $scope.status ="Active";
+        //             $("#selectPermissionMaster").modal('show');
+        //         }, function (error) {
+        //             Notification.error({
+        //                 message: 'Something went wrong, please try again',
+        //                 positionX: 'center',
+        //                 delay: 2000
+        //             });
+        //         }
+        //     )
+        // };
+
+    });

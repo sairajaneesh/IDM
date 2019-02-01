@@ -1,0 +1,202 @@
+package com.hyva.idm.sass.sassentities;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+
+@Entity
+public class TransactionsData {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long transactionId;
+  @Column(columnDefinition = "LONGTEXT")
+  private String fromRegno;
+  @Column(columnDefinition = "LONGTEXT")
+  private String toRegno;
+  private String userId;
+  private java.sql.Timestamp timestamp;
+  private String objectdata;
+  private String typeDoc;
+  private String status;
+  private Long notificationId;
+  private String totaltax;
+  private String totalcheckoutamt;
+    private String toCompname;
+    private String toEmail;
+    private String contact;
+    private String address;
+    private String fromCompname;
+    private String fromEmail;
+    private String fromContact;
+    private String fromAddress;
+    private String typeFlag;
+    private String viewStatus;
+
+
+    public Long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public String getFromRegno() {
+        return fromRegno;
+    }
+
+    public void setFromRegno(String fromRegno) {
+        this.fromRegno = fromRegno;
+    }
+
+    public String getToRegno() {
+        return toRegno;
+    }
+
+    public void setToRegno(String toRegno) {
+        this.toRegno = toRegno;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getObjectdata() {
+        return objectdata;
+    }
+
+    public void setObjectdata(String objectdata) {
+        this.objectdata = objectdata;
+    }
+
+    public String getTypeDoc() {
+        return typeDoc;
+    }
+
+    public void setTypeDoc(String typeDoc) {
+        this.typeDoc = typeDoc;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long getNotificationId() {
+        return notificationId;
+    }
+
+    public void setNotificationId(Long notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public String getTotaltax() {
+        return totaltax;
+    }
+
+    public void setTotaltax(String totaltax) {
+        this.totaltax = totaltax;
+    }
+
+    public String getTotalcheckoutamt() {
+        return totalcheckoutamt;
+    }
+
+    public void setTotalcheckoutamt(String totalcheckoutamt) {
+        this.totalcheckoutamt = totalcheckoutamt;
+    }
+
+    public String getToCompname() {
+        return toCompname;
+    }
+
+    public void setToCompname(String toCompname) {
+        this.toCompname = toCompname;
+    }
+
+    public String getToEmail() {
+        return toEmail;
+    }
+
+    public void setToEmail(String toEmail) {
+        this.toEmail = toEmail;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFromCompname() {
+        return fromCompname;
+    }
+
+    public void setFromCompname(String fromCompname) {
+        this.fromCompname = fromCompname;
+    }
+
+    public String getFromEmail() {
+        return fromEmail;
+    }
+
+    public void setFromEmail(String fromEmail) {
+        this.fromEmail = fromEmail;
+    }
+
+    public String getFromContact() {
+        return fromContact;
+    }
+
+    public void setFromContact(String fromContact) {
+        this.fromContact = fromContact;
+    }
+
+    public String getFromAddress() {
+        return fromAddress;
+    }
+
+    public void setFromAddress(String fromAddress) {
+        this.fromAddress = fromAddress;
+    }
+
+    public String getTypeFlag() {
+        return typeFlag;
+    }
+
+    public void setTypeFlag(String typeFlag) {
+        this.typeFlag = typeFlag;
+    }
+
+    public String getViewStatus() {
+        return viewStatus;
+    }
+
+    public void setViewStatus(String viewStatus) {
+        this.viewStatus = viewStatus;
+    }
+}

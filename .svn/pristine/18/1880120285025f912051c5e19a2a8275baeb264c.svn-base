@@ -1,0 +1,219 @@
+package com.hyva.idm.sass.sassendpoints;
+
+
+import com.google.gson.Gson;
+import com.hyva.idm.sass.sassconstant.HiConnectConstants;
+import com.hyva.idm.pojo.IDMResponse;
+import com.hyva.idm.sass.sassentities.CustomerNotifications;
+import com.hyva.idm.sass.sassentities.SassCustomer;
+import com.hyva.idm.sass.sassentities.TransactionsData;
+import com.hyva.idm.sass.sasspojo.CustomerListBasedOnToRegNoPojo;
+import com.hyva.idm.sass.sasspojo.CustomerNotificationsPojo;
+import com.hyva.idm.sass.sasspojo.TransactionsDataPojo;
+import com.hyva.idm.sass.sassrespositories.SassCustomerNotificationsRepository;
+import com.hyva.idm.sass.sassservice.SaasTranscationsDataService;
+import com.hyva.idm.sass.sassservice.SassCustomerNotificationsService;
+import com.hyva.idm.sass.sassservice.SassOrdersService;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.node.ObjectNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by azgar on 1/6/18.
+ */
+@RestController
+@RequestMapping(HiConnectConstants.HI_CONNECT_SERVICES)
+public class HiConnectEndPoint {
+    @Autowired
+    SassOrdersService sassOrdersService;
+    @Autowired
+    SassCustomerNotificationsService sassCustomerNotificationsService;
+    @Autowired
+    SaasTranscationsDataService saasTranscationsDataService;
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_COMPANY_SEARCH,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse searchCompanyNames(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        if(jsonObject.length() > 0) {
+            String CompanyName=jsonObject.getString("company_name");
+        List<SassCustomer> customersList=sassOrdersService.getCompanyNamesListFromCustomers(CompanyName);
+            Gson gson = new Gson();
+            String jsonCartList = gson.toJson(customersList);
+        return new IDMResponse(HttpStatus.OK.value(), "success",jsonCartList);}
+        else{
+            return new IDMResponse(HttpStatus.OK.value(), "empty value ");
+        }
+      }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATION_COMPANY_FOR_SUPPLIER,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse setHiConnectNotificationsCompanyForSupplier(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_SET_NOTIFICATION_COMPANY,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse setHiConnectNotificationsCompany(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        Gson gson = new Gson();
+        CustomerNotificationsPojo customerNotificationsObj = gson.fromJson(jsonObject.toString(),CustomerNotificationsPojo.class);
+        List<SassCustomer> toreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getToRegno());
+        List<SassCustomer> fromreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getFromRegno());
+        sassCustomerNotificationsService.getCustomerNotificationSave(customerNotificationsObj,toreglist,fromreglist);
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION_FOR_SUPP,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse confirmAcceptanceOrRejectNotificationsForSupp(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        Gson gson = new Gson();
+        CustomerNotificationsPojo customerNotificationsObj = gson.fromJson(jsonObject.toString(),CustomerNotificationsPojo.class);
+        List<SassCustomer> toreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getToRegno());
+        List<SassCustomer> fromreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getFromRegno());
+        sassCustomerNotificationsService.getCustomerNotificationSave(customerNotificationsObj,toreglist,fromreglist);
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse confirmAcceptanceOrRejectNotifications(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        Gson gson = new Gson();
+        CustomerNotificationsPojo customerNotificationsObj = gson.fromJson(jsonObject.toString(),CustomerNotificationsPojo.class);
+        List<SassCustomer> toreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getToRegno());
+        List<SassCustomer> fromreglist=sassOrdersService.getSaasCustomerRegNo(customerNotificationsObj.getFromRegno());
+        sassCustomerNotificationsService.getCustomerNotificationSave(customerNotificationsObj,toreglist,fromreglist);
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATIONS,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object getHiConnectNotifications(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        String regNo = jsonObject.getString("regno");
+        String typeFlag = jsonObject.getString("type_flag");
+        String status ="";
+        CustomerNotifications gettingstatus=sassCustomerNotificationsService.getStatus(regNo,typeFlag);
+        if(gettingstatus!=null) {
+             status = gettingstatus.getStatus();
+        }
+        else{
+             status = "pending";
+        }
+        List<SassCustomer> saasCustomerList=null;
+        List<CustomerNotifications> regNoList=null;
+        if (!status.equalsIgnoreCase("close")) {
+             regNoList=sassCustomerNotificationsService.getCustomerRegNo(regNo,status);
+        }
+        else {
+            regNoList=sassCustomerNotificationsService.getCustomerRegNo("0","");
+        }
+//        if(status=="Accepted"){
+//            regNoList=sassCustomerNotificationsService.getCustomerRegNo(regNo,status);
+//        }
+
+        if(regNoList.size()>0) {
+            saasCustomerList = sassOrdersService.getSaasCustomerRegNo(regNoList.get(0).getFromRegno());
+        }
+        else{
+            saasCustomerList = sassOrdersService.getSaasCustomerRegNo("0");
+        }
+        CustomerListBasedOnToRegNoPojo custNtftnList = new CustomerListBasedOnToRegNoPojo();
+        custNtftnList.setSassCustomerList(saasCustomerList);
+        custNtftnList.setCustomerNotificationsList(regNoList);
+        List<TransactionsData> transactionsDataList = sassOrdersService.getTransactionList();
+        custNtftnList.setTransactionsDataList(transactionsDataList);
+        Gson gson = new Gson();
+        String custNotftnList = gson.toJson(custNtftnList);
+        return new IDMResponse(HttpStatus.OK.value(), "success",custNotftnList);
+    }
+
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATION_TRANSACTION_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getNotificationTransactionData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_BROADCAST_PO_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostPurchaseOrderData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_BROADCAST_SP_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostSupplierPaymentData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_FORM_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostSalesInvoiceData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        Gson gson = new Gson();
+        String status = "pending";
+        TransactionsDataPojo transactionsDataPojo = new TransactionsDataPojo();
+        transactionsDataPojo.setObjectdata(jsonObject.get("selectedItemsList").toString());
+//        transactionsDataPojo.setStatus(jsonObject.get("status").toString());
+        transactionsDataPojo.setStatus(status);
+        transactionsDataPojo.setTotalcheckoutamt(jsonObject.get("totalCheckOutamt").toString());
+        transactionsDataPojo.setTotaltax(jsonObject.get("totalTaxAmt").toString());
+        transactionsDataPojo.setTypeDoc(jsonObject.get("type_doc").toString());
+        transactionsDataPojo.setTypeFlag(jsonObject.get("type_flag").toString());
+        saasTranscationsDataService.getSalesInvoiceSave(transactionsDataPojo);
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+}

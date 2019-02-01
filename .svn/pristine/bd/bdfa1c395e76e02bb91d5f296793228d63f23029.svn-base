@@ -1,0 +1,124 @@
+package com.hyva.idm.sass.sasspojo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by tnataraj on 6/26/17.
+ */
+public class SassCurrencyPojo {
+    private Long currencyId;
+    private String currencyName;
+    private String currencyCode;
+    private String currencySymbol;
+    private String currencyDescription;
+    private String status;
+    private String sassCountryPojoId;
+    private SassCountryPojo sassCountryPojo;
+    private List<SassCountryPojo> sassCountryPojoList = new ArrayList<>();
+
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+    /**
+     * Gets currencyCode.
+     *
+     * @return Value of currencyCode.
+     */
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+
+    /**
+     * Sets new currencyCode.
+     *
+     * @param currencyCode New value of currencyCode.
+     */
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    /**
+     * Sets new currencyName.
+     *
+     * @param currencyName New value of currencyName.
+     */
+    public void setCurrencyName(String currencyName) {
+        this.currencyName = currencyName;
+    }
+
+    /**
+     * Sets new currencyId.
+     *
+     * @param currencyId New value of currencyId.
+     */
+    public void setCurrencyId(Long currencyId) {
+        this.currencyId = currencyId;
+    }
+
+    /**
+     * Gets currencyName.
+     *
+     * @return Value of currencyName.
+     */
+    public String getCurrencyName() {
+        return currencyName;
+    }
+
+    /**
+     * Gets currencyId.
+     *
+     * @return Value of currencyId.
+     */
+    public Long getCurrencyId() {
+        return currencyId;
+    }
+
+    public String getCurrencySymbol() {
+        return currencySymbol;
+    }
+
+    public void setCurrencySymbol(String currencySymbol) {
+        this.currencySymbol = currencySymbol;
+    }
+
+    public String getCurrencyDescription() {
+        return currencyDescription;
+    }
+
+    public void setCurrencyDescription(String currencyDescription) {
+        this.currencyDescription = currencyDescription;
+    }
+
+    public List<SassCountryPojo> getSassCountryPojoList() {
+        return sassCountryPojoList;
+    }
+
+    public void setSassCountryPojoList(List<SassCountryPojo> sassCountryPojoList) {
+        this.sassCountryPojoList = sassCountryPojoList;
+    }
+
+    public SassCountryPojo getSassCountryPojo() {
+        return sassCountryPojo;
+    }
+
+    public void setSassCountryPojo(SassCountryPojo sassCountryPojo) {
+        this.sassCountryPojo = sassCountryPojo;
+    }
+
+    public String getSassCountryPojoId() {
+        return sassCountryPojoId;
+    }
+
+    public void setSassCountryPojoId(String sassCountryPojoId) {
+        this.sassCountryPojoId = sassCountryPojoId;
+    }
+}

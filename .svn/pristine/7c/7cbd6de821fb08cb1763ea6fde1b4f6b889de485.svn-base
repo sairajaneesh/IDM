@@ -1,0 +1,68 @@
+package com.hyva.idm.sass.sassentities;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+public class CompanyPermission {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long cpId;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
+    private String permissionMasterkey;
+    @OneToOne
+    private PermissionMaster permissionMasterId;
+    private String status;
+    private int validity;
+    private int validityRemaining;
+    private Date fromDate;
+    private Date toDate;
+
+    public Long getCpId() {return cpId;}
+
+    public void setCpId(Long cpId) {this.cpId = cpId;}
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
+
+    public PermissionMaster getPermissionMasterId() {return permissionMasterId;}
+
+    public void setPermissionMasterId(PermissionMaster permissionMasterId) {this.permissionMasterId = permissionMasterId;}
+
+    public String getStatus() {return status;}
+
+    public void setStatus(String status) {this.status = status;}
+
+    public int getValidity() {return validity;}
+
+    public void setValidity(int validity) {this.validity = validity;}
+
+    public Date getFromDate() {return fromDate;}
+
+    public void setFromDate(Date fromDate) {this.fromDate = fromDate;}
+
+    public Date getToDate() {return toDate;}
+
+    public void setToDate(Date toDate) {this.toDate = toDate;}
+
+    public int getValidityRemaining() {
+        return validityRemaining;
+    }
+
+    public void setValidityRemaining(int validityRemaining) {
+        this.validityRemaining = validityRemaining;
+    }
+
+    public String getPermissionMasterkey() {
+        return permissionMasterkey;
+    }
+
+    public void setPermissionMasterkey(String permissionMasterkey) {
+        this.permissionMasterkey = permissionMasterkey;
+    }
+}

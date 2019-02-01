@@ -1,0 +1,58 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+
+import javax.persistence.*;
+
+@Entity
+public class SassPermissionGroup extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long pgId;
+    private String featureName; //Sales
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
+    private String saasStatus;
+    private String permissionGroupkey;
+
+    public Long getPgId() {
+        return pgId;
+    }
+
+    public void setPgId(Long pgId) {
+        this.pgId = pgId;
+    }
+
+    public String getFeatureName() {
+        return featureName;
+    }
+
+    public void setFeatureName(String featureName) {
+        this.featureName = featureName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    public String getPermissionGroupkey() {
+        return permissionGroupkey;
+    }
+
+    public void setPermissionGroupkey(String permissionGroupkey) {
+        this.permissionGroupkey = permissionGroupkey;
+    }
+}

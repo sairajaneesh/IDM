@@ -1,0 +1,95 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+
+import javax.persistence.*;
+
+@Entity
+public class SassCompany extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long compnayId;
+    private String companyName;
+    private String email;
+    private String userName;
+    private String password;
+    private String loginUniqueId;
+    private String status;
+    private String companyType;
+    @OneToOne
+    private SassOrders sassOrdersId;
+
+    public SassOrders getSassOrdersId() {
+        return sassOrdersId;
+    }
+
+    public void setSassOrdersId(SassOrders sassOrdersId) {
+        this.sassOrdersId = sassOrdersId;
+    }
+
+    public Long getCompnayId() {
+        return compnayId;
+    }
+
+    public void setCompnayId(Long compnayId) {
+        this.compnayId = compnayId;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLoginUniqueId() {
+        return loginUniqueId;
+    }
+
+    public void setLoginUniqueId(String loginUniqueId) {
+        this.loginUniqueId = loginUniqueId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCompanyType() {
+        return companyType;
+    }
+
+    public void setCompanyType(String companyType) {
+        this.companyType = companyType;
+    }
+
+}

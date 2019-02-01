@@ -1,0 +1,105 @@
+package com.hyva.idm.sass.sasspojo;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Date;
+
+public class PaymentTypePojo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long paymenetId;
+    private String voucherPayment;
+    private String cardPayment;
+    private double totalCashPayment;
+    private double totalVoucherPayment;
+    private double totalCardPayment;
+    private double totalAmount;
+    private String duplicatePrint;
+    private Date transactionDate;
+    private String customerId;
+
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public Long getPaymenetId() {
+        return paymenetId;
+    }
+
+    public void setPaymenetId(Long paymenetId) {
+        this.paymenetId = paymenetId;
+    }
+
+    public String getVoucherPayment() {
+        return voucherPayment;
+    }
+
+    public void setVoucherPayment(String voucherPayment) {
+        this.voucherPayment = voucherPayment;
+    }
+
+    public String getCardPayment() {
+        return cardPayment;
+    }
+
+    public void setCardPayment(String cardPayment) {
+        this.cardPayment = cardPayment;
+    }
+
+    public double getTotalCashPayment() {
+        return totalCashPayment;
+    }
+
+    public void setTotalCashPayment(double totalCashPayment) {
+        this.totalCashPayment = totalCashPayment;
+    }
+
+    public double getTotalVoucherPayment() {
+        return totalVoucherPayment;
+    }
+
+    public void setTotalVoucherPayment(double totalVoucherPayment) {
+        this.totalVoucherPayment = totalVoucherPayment;
+    }
+
+    public double getTotalCardPayment() {
+        return totalCardPayment;
+    }
+
+    public void setTotalCardPayment(double totalCardPayment) {
+        this.totalCardPayment = totalCardPayment;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getDuplicatePrint() {
+        return duplicatePrint;
+    }
+
+    public void setDuplicatePrint(String duplicatePrint) {
+        this.duplicatePrint = duplicatePrint;
+    }
+
+    public Date getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+}

@@ -1,0 +1,40 @@
+package com.hyva.idm.sass.sassmapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.hyva.idm.sass.sassentities.SassOrders;
+import com.hyva.idm.sass.sassentities.SassSubscriptions;
+import com.hyva.idm.sass.sasspojo.SassSubscriptionsPojo;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class SassSubscriptionMapper {
+
+    public static SassSubscriptions mapPojoToEntity(SassSubscriptionsPojo sassSubscriptionsPojo){
+
+        SassSubscriptions sassSubscriptions=new SassSubscriptions();
+        sassSubscriptions.setSubscriptionName(sassSubscriptionsPojo.getSubscriptionName());
+        sassSubscriptions.setValidity(sassSubscriptionsPojo.getValidity());
+        sassSubscriptions.setStatus(sassSubscriptionsPojo.getStatus());
+        sassSubscriptions.setValidityType(sassSubscriptionsPojo.getValidityType());
+        sassSubscriptions.setSubscriptionFor(sassSubscriptionsPojo.getSubscriptionFor());
+        sassSubscriptions.setOriginalCharge(sassSubscriptionsPojo.getOriginalCharge());
+        sassSubscriptions.setVersion(sassSubscriptionsPojo.getVersion());
+        sassSubscriptions.setPermission(sassSubscriptionsPojo.getPermission());
+        sassSubscriptions.setAddonPermission(sassSubscriptionsPojo.getAddonPermission());
+        return sassSubscriptions;
+    }
+
+    public static SassSubscriptionsPojo mapEntityToPojo(SassOrders sassOrders){
+        SassSubscriptionsPojo sassSubscriptionsPojo=new SassSubscriptionsPojo();
+            return sassSubscriptionsPojo;
+    }
+
+
+}

@@ -1,0 +1,280 @@
+<div class="row">
+    <div id="{{loginId}}" >
+        <div class="login_wrapper">
+            <!-- Login Form section -->
+            <div class="animate form login_form" ng-if="currentPage == 'login'">
+                <section class="login_content">
+                    <img src="resource/images/i_logo.png" style="position: absolute; top: 0; left: -60px;">
+                    <form name="loginForm" ng-submit="login()" novalidate>
+                        <h1>{{'login' | translate}}</h1>
+                        <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+                            <label class="text-left">{{'CompanyEmail' | translate}}</label>
+                            <div style="position: relative;">
+                                <input type="email" class="form-control" placeholder="{{'CompanyEmail' | translate}}" name="email" ng-model="loginFormData.email" required />
+                            </div>
+                            <div class="help-block text-left" ng-show="loginForm.email.$touched && loginForm.email.$invalid">
+                                Your email address must be in the format of name@domain.com.
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }">
+                            <label class="text-left">{{'userName' | translate}}</label>
+                            <div style="position: relative;">
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="{{'userName' | translate}}"
+                                       name="username"
+                                       ng-model="loginFormData.name"
+                                       required/>
+                            </div>
+                            <div class="help-block text-left" ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+                                Username should not be empty.
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                            <label class="text-left">{{'password' | translate}}</label>
+                            <div style="position: relative;">
+                                <input type="password"
+                                       class="form-control"
+                                       placeholder="{{'password' | translate}}"
+                                       name="password"
+                                       ng-model="loginFormData.password" required/>
+                            </div>
+                            <div class="help-block text-left" ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+                                Your password must have a minimum length of 6 characters.
+                            </div>
+                        </div>
+                        <!--<div class="form-group">-->
+                        <!--<label class="text-left">Language</label>-->
+                        <!--<select ng-model="language" class="form-control" ng-change="changeLanguage(language);">-->
+                        <!--<option value="en">English</option>-->
+                        <!--<option value="sp"> Malaysian</option>-->
+                        <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                        <!--<div class="col-md-6 col-xs-7">-->
+                        <!--<a href="#!/superAdminLogin" class="reset_pass"  style="cursor:pointer;color: black;text-shadow: none;">Manage Companies</a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-3 col-xs-offset-0">
+                                <div style="text-align: left;">
+                                    <input type="submit" id="submit_on_enter" style="padding: 8px 22px;" class="btn btn-default btn-primary" value="SUBMIT" ng-disabled="loginForm.$invalid"/>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-1 col-md-6 col-sm-6 col-xs-7">
+                                <div style="text-align: right;">
+                                    <a href="#!/superAdminLogin"><input type="submit" class="btn btn-default btn-primary reset_pass"  style="cursor:pointer;color: white;text-shadow: none;padding: 8px 22px;" value="Manage Companies"></a>
+                                    <!--<a href="javascript:;" class="reset_pass" ng-click="changeTab('forget')" style="cursor:pointer;color: black;text-shadow: none;">Forgot your password?</a>-->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--<div>-->
+                        <!--<button ng-click="changeLanguage('en')">English</button>-->
+                        <!--<button ng-click="changeLanguage('sp')">Spanish</button>-->
+                        <!--</div>-->
+                        <div style="margin-top: 15px;">
+                            V-18.1.01
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--<p ng-show="currentPage == 'license'">New to site?-->
+                        <!--<a ng-click="loginId = 'signup';" class="to_register"> Register License </a>-->
+                        <!--</p>-->
+                    </form>
+                </section>
+            </div>
+
+            <!-- Registration Form section -->
+            <div class="animate form registration_form" ng-if="currentPage == 'license'">
+                <section class="login_content">
+                    <form name="registrationForm" ng-submit="register()" novalidate>
+                        <h1>Registration</h1>
+                        <p>Enter your License Key to complete your registration process</p>
+                        <div class="form-group" ng-class="{ 'has-error' : registrationForm.license.$invalid && !registrationForm.license.$pristine }">
+                            <input type="text" name="license" class="form-control" placeholder="Enter your License here..."
+                                   ng-model="registrationFormData.license_key"
+                                   ng-minlength="25"
+                                   ng-pattern="/[a-zA-Z0-9]/" required capitalize-with-dash style="margin: 20px 0px 30px;" />
+                            <!--<span class="asterisk_input">  </span>-->
+                            <div class="help-block text-left" ng-show="registrationForm.license.$touched && registrationForm.license.$invalid">
+                                License should not be empty and it must have atleast 25 characters, contains number and letter only.
+                            </div>
+                        </div>
+
+                        <div style="text-align: right">
+                            <button type="submit" class="btn btn-default btn-primary"
+                                    ng-disabled="registrationForm.$invalid" style="text-transform: uppercase;">Submit</button>
+                            <a href="http://hiaccounts.in" class="btn btn-default btn-primary"
+                               target="_blank" style="height: 34px;
+                               text-transform: uppercase;
+                                padding: 8px 12px 6px 12px;
+                                margin: 0px 0px 5px 5px;
+                                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">Buy / Renew</a>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div style="margin-top: 26px;">
+                            <img src="resource/images/i_logo_big.png" style="width: 200px;">
+                        </div>
+
+                        <!--<div class="separator">-->
+                        <!--<p>Already a member ?-->
+                        <!--<a ng-click="loginId = 'signin';" class="to_register"> Log in </a>-->
+                        <!--</p>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--</div>-->
+                        <!--<div class="col-lg-4">-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="" style="margin: 200px 0px;">-->
+                        <!--<label class="text-left">License</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="text"-->
+                        <!--class="form-control"-->
+                        <!--placeholder="License"-->
+                        <!--name="username"-->
+                        <!--ng-model=""-->
+                        <!--required/>-->
+                        <!--<span class="asterisk_input">  </span>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-lg-2">-->
+                        <!--<div class="verticalLine">-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-lg-4" style="pointer-events: none;">-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="{ 'has-error' : registrationForm.userName.$invalid && !registrationForm.userName.$pristine }">-->
+                        <!--<label class="text-left">Username</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="text" class="form-control" placeholder="Username"  name="userName"-->
+                        <!--ng-model="registrationFormData.userName"-->
+                        <!--ng-minlength="3" required/>-->
+                        <!--<span class="asterisk_input">  </span>-->
+                        <!--</div>-->
+                        <!--<div class="help-block text-left" ng-show="registrationForm.userName.$touched && registrationForm.userName.$invalid">-->
+                        <!--User name shold not be empty and it must have atleast 3 characters.-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="{ 'has-error' : registrationForm.password.$invalid && !registrationForm.password.$pristine }">-->
+                        <!--<label class="text-left">Password</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="password" class="form-control" placeholder="Password"  name="Password"-->
+                        <!--ng-model="registrationFormData.Password" required />-->
+                        <!--<span class="asterisk_input">  </span>-->
+                        <!--</div>-->
+                        <!--<div class="help-block text-left" ng-show="registrationForm.Password.$touched && registrationForm.Password.$invalid">-->
+                        <!--Your password must have a minimum length of 6 characters.-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="{ 'has-error' : registrationForm.emailId.$invalid && !registrationForm.emailId.$pristine }">-->
+                        <!--<label class="text-left">Email</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="email" name="emailId" class="form-control"  placeholder="Email"-->
+                        <!--ng-model="registrationFormData.emailId" required />-->
+                        <!--<span class="asterisk_input">  </span>-->
+                        <!--</div>-->
+                        <!--<div class="help-block text-left" ng-show="registrationForm.emailId.$touched && registrationForm.emailId.$invalid">-->
+                        <!--Your email address must be in the format of name@domain.com.-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="{ 'has-error' : registrationForm.companyName.$invalid && !registrationForm.companyName.$pristine }">-->
+                        <!--<label class="text-left">Company Name</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="text" class="form-control" placeholder="Company Name"  name="companyName"-->
+                        <!--ng-model="registrationFormData.companyName" required />-->
+                        <!--<span class="asterisk_input">  </span>-->
+                        <!--</div>-->
+                        <!--<div class="help-block text-left" ng-show="registrationForm.companyName.$touched && registrationForm.companyName.$invalid">-->
+                        <!--Company name should not be empty.-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group"-->
+                        <!--ng-class="{ 'has-error' : registrationForm.company_reg_no.$invalid && !registrationForm.company_reg_no.$pristine }">-->
+                        <!--<label class="text-left">Company Registration No.</label>-->
+                        <!--<div style="position: relative;">-->
+                        <!--<input type="text" class="form-control" placeholder="Company Registration No." name="company_reg_no"   ng-model="registrationFormData.companyRegNo" required />-->
+                        <!--&lt;!&ndash;<span class="asterisk_input">  </span>&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<div class="help-block text-left" ng-show="registrationForm.company_reg_no.$touched && registrationForm.company_reg_no.$invalid">-->
+                        <!--We need this information to complete registration process.-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;<div class="form-group"&ndash;&gt;-->
+                        <!--&lt;!&ndash;ng-class="{ 'has-error' : registrationForm.business.$invalid && !registrationForm.business.$pristine }">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="text-left">Business</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div style="position: relative;">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" class="form-control" name="business" placeholder="Business" &ndash;&gt;-->
+                        <!--&lt;!&ndash;ng-model="registrationFormData.business" required/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;<span class="asterisk_input">  </span>&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="help-block text-left" ng-show="registrationForm.business.$touched && registrationForm.business.$invalid">&ndash;&gt;-->
+                        <!--&lt;!&ndash;We need this information to complete registration process.&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div> &ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="text-left">Select an Industry</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<select class="form-control" ng-model="registrationFormData.industry">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<option>Retail</option>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="text-left">Address</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<textarea class="form-control" ng-model="registrationFormData.address" ></textarea>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                        <!--<div>-->
+                        <!--<button type="submit" class="btn btn-default btn-primary" ng-disabled="registrationForm.$invalid">Submit</button>-->
+                        <!--</div>-->
+
+                        <!--<div class="clearfix"></div>-->
+
+                        <!--<div class="separator">-->
+                        <!--<p>Already a member ?-->
+                        <!--<a ng-click="loginId = 'signin';" class="to_register"> Log in </a>-->
+                        <!--</p>-->
+
+                        <!--<div class="clearfix"></div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </form>
+                </section>
+            </div>
+
+            <!-- Forget Form section -->
+            <div class="animate form forget_pwd_form" ng-if="currentPage == 'login'">
+                <section class="login_content">
+                    <form name="forgetPwdForm" ng-submit="forgetPwd()" novalidate style="    width: 98%;">
+                        <h1>Let's get you into your account</h1>
+                        <p>Tell us your Sign-in User Name.</p>
+                        <div class="form-group">
+                            <input type="text" name="userName" class="form-control" placeholder="User Name"
+                                   ng-model="forgetPwdFormData.user_name" required />
+
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-default btn-primary" ng-disabled="forgetPwdForm.$invalid">Submit</button>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <p>Already a member ?
+                                <a href="javascript:;" ng-click="changeTab('signin')" class="to_register" style="cursor:pointer;"> Log in </a>
+                            </p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>ControlPanel</div>
+            </h2>
+        </div>
+        <div class="row">
+
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/currency">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Currency</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/paymentmethod">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Payment Method</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/countryList">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Country</div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/StateList">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">State</div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/versioncontrol">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Version Control</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/subscription">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Subscription</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/packages">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Packages</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/PractitionerRegistration">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">PractitionerRegistration</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/Practitionerorders">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Practitionerorders</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/customer">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Customer</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/addon">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">AddOn</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 rep_list_info">
+                <a href="#!/cartRegistration">
+                    <div class="custom_info">
+                        <img src="resource/images/icon/inventory/salesdiscountconfigurationinv.png"  width="150" height="97">
+                        <div class="rep_info">Cart Registration</div>
+                    </div>
+                </a>
+            </div>
+    </div>
+</div>
+</body>
+
+

@@ -1,0 +1,50 @@
+package com.hyva.idm.endpoints;
+
+import com.hyva.idm.constants.EndpointConstants;
+import com.hyva.idm.entity.UserEntity;
+import com.hyva.idm.pojo.IDMResponse;
+import com.hyva.idm.sass.sassentities.SassUser;
+import com.hyva.idm.sass.sasspojo.CartRegistrationPojo;
+import com.hyva.idm.sass.sasspojo.SassUserPojo;
+import com.hyva.idm.sass.sassservice.SassUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * Created by tnataraj on 1/15/18.
+ */
+@RestController
+@RequestMapping(EndpointConstants.AUTHENTICATION_ENDPOINT)
+public class AuthenticationEndpoint {
+
+    @Autowired
+    SassUserService sassUserService;
+
+    @RequestMapping(value = "/authenticate_access_token",method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public String auhtenticateUserNamePass()
+    {
+      return "success";
+    }
+
+    @RequestMapping(value = "/saveLoginDetails", method = RequestMethod.POST,consumes = "application/json", produces = "application/json")
+    public SassUser saveLoginDetails(@RequestBody SassUserPojo sassUserPojo)  {
+        return sassUserService.saveUserDetails(sassUserPojo);
+    }
+    @RequestMapping(value = "/userValidate", method = RequestMethod.POST,consumes = "application/json", produces = "application/json")
+    public SassUser userValidate(@RequestBody SassUserPojo sassUserPojo)  {
+        return sassUserService.userValidate(sassUserPojo);
+    }
+    @RequestMapping(value = "/getUserDetailsList", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getUserDetailsList(){
+        List<SassUserPojo> sassUserPojos= sassUserService.sassUserList();
+        return new IDMResponse(HttpStatus.OK.value(), " success",sassUserPojos);
+    }
+}

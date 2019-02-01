@@ -1,0 +1,133 @@
+package com.hyva.idm.entity;
+
+import javax.persistence.*;
+
+/**
+ * Created by tnataraj on 1/15/18.
+ */
+@Entity
+public class CompanyEntity extends BaseEntity<String> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(unique = true)
+    private String companyName;
+    @Column(unique = true)
+    private String emailId;
+    @Column(unique = true)
+    private String keyWord;
+    private String companyType;
+    @Column(unique = true)
+    private String saasToken;
+    private boolean active;
+
+    /**
+     * Sets new emailId.
+     *
+     * @param emailId New value of emailId.
+     */
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    /**
+     * Sets new keyWord.
+     *
+     * @param keyWord New value of keyWord.
+     */
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
+    }
+
+    /**
+     * Sets new active.
+     *
+     * @param active New value of active.
+     */
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    /**
+     * Sets new saasToken.
+     *
+     * @param saasToken New value of saasToken.
+     */
+    public void setSaasToken(String saasToken) {
+        this.saasToken = saasToken;
+    }
+
+    /**
+     * Gets companyName.
+     *
+     * @return Value of companyName.
+     */
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    /**
+     * Gets keyWord.
+     *
+     * @return Value of keyWord.
+     */
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    /**
+     * Gets active.
+     *
+     * @return Value of active.
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * Gets saasToken.
+     *
+     * @return Value of saasToken.
+     */
+    public String getSaasToken() {
+        return saasToken;
+    }
+
+    /**
+     * Gets companyType.
+     *
+     * @return Value of companyType.
+     */
+    public String getCompanyType() {
+        return companyType;
+    }
+
+    /**
+     * Gets emailId.
+     *
+     * @return Value of emailId.
+     */
+    public String getEmailId() {
+        return emailId;
+    }
+
+    /**
+     * Sets new companyType.
+     *
+     * @param companyType New value of companyType.
+     */
+    public void setCompanyType(String companyType) {
+        this.companyType = companyType;
+    }
+
+    /**
+     * Sets new companyName.
+     *
+     * @param companyName New value of companyName.
+     */
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+}

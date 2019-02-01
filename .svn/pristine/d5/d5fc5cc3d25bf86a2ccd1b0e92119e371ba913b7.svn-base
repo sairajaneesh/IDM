@@ -1,0 +1,83 @@
+package com.hyva.idm.sass.sassentities;
+
+import com.hyva.idm.entity.BaseEntity;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class SassCountry extends BaseEntity<String> {
+    @Id
+    @GenericGenerator(name = "native", strategy = "native")
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
+    private Long countryId;
+    private String countryName;
+    private String flag;
+    private String locationId;
+    private String useraccount_id;
+    private String status;
+
+    public SassCountry(Long countryId) {
+        this.countryId=countryId;
+    }
+
+    public SassCountry() {
+    }
+
+    public SassCountry(String countryName, String flag, String status) {
+        this.countryName = countryName;
+        this.flag = flag;
+        this.status = status;
+    }
+
+    public Long getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
+    }
+
+    public String getUseraccount_id() {
+        return useraccount_id;
+    }
+
+    public void setUseraccount_id(String useraccount_id) {
+        this.useraccount_id = useraccount_id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

@@ -1,0 +1,677 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.hyva.idm.sass.sasspojo;
+
+
+//import com.hyva.accounts.hipos.response.dto.CompanyInfoDTO;
+//import com.hyva.entities.BasicChartAccounts;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+
+/**
+ *
+ * @author sarita.a
+ */
+public class CompanyInfoDto implements Serializable {
+    //============================================== Company ================================================================================
+    private Long tempId;
+//    private Long companyId;
+    private String lang;
+    private Long countryId;
+    private boolean registeredCompany;
+    private String registerNo;
+    private String company_name;
+    private String company_no;
+    private String address;
+    private String phone;
+    private String fax;
+    private String email;
+    private String web;
+    private String incdate;
+    private Long currencyId;
+    private String accCodeSep;
+    private int gstId;
+    private Long industryClassificationId;
+    private Long businessTypeId;
+    private String logo;
+    private Date GSTRegisteredDate;
+//    private CompanyInfoDTO companyId;
+    private String panNumber;
+    //=========================================================================================================================================
+    private String yearclosing;
+    private String startperiod;
+    private String closingperiod;
+    private String startyear;
+    private String endyear;
+    private String closingMethod;
+    private int bufferDays;
+    private String gstRegisteredDate;
+    private String bufferDate;
+    //================================================================ Chart of Accounts =====================================================
+    private String createOrSelectAM;
+//    private Collection<BasicChartAccounts> coaBLDBList;
+//    private Collection<BasicChartAccounts> coaPLDBList;
+    //================================================================ File Company ==========================================================    
+//    private MultipartFile myFile;
+//    private byte[] imageBlob;
+//    private String myFileContentType;
+//    private String myFileFileName;
+    //========================================================================================================================================
+    private boolean accreceivable;
+    private boolean accpayable;
+    private boolean recurring;
+    private boolean registrationalert;
+    private boolean gstreturnalert;
+    private boolean debatoralert;
+    private boolean creditoralert;
+    private boolean dueMounthly;
+    private boolean dueYearly;
+    private Integer notaccReceivable;
+    private Integer notaccPayable;
+    private Integer notRegistration;
+    private Integer notGSTReturn;
+    private Integer notDebator;
+    private Integer notCreditor;
+    private Integer notDueMonthly;
+    private Integer notDueYearly;
+    private Integer accreceivabledue;
+    private Integer accpayabledue;
+    private Integer registrationdue;
+    private Integer gstreturnalertdue;
+    private String gstreturnalertduedate;
+    private boolean accPayable;
+    private boolean registrationAlert;
+    private boolean accReceivable;
+    private boolean gstReturnAlert;
+    private String CoaCodeImport;
+    private boolean comprehensiveScheme;
+    private String panNo;
+//    private State stateId;
+    private Long stateId;
+    private String stateName;
+    private String fileName;
+    private String sassOrdersId;
+
+//    public byte[] getImageBlob() {
+//        return imageBlob;
+//    }
+
+
+    public String getSassOrdersId() {
+        return sassOrdersId;
+    }
+
+    public void setSassOrdersId(String sassOrdersId) {
+        this.sassOrdersId = sassOrdersId;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public boolean isGstreturnalert() {
+        return gstreturnalert;
+    }
+
+    public void setGstreturnalert(boolean gstreturnalert) {
+        this.gstreturnalert = gstreturnalert;
+    }
+
+    public void setGstreturnalert(Boolean gstreturnalert) {
+        this.gstreturnalert = gstreturnalert;
+    }
+
+    public boolean isAccReceivable() {
+        return accReceivable;
+    }
+
+    public void setAccReceivable(boolean accReceivable) {
+        this.accReceivable = accReceivable;
+    }
+
+    public boolean isAccPayable() {
+        return accPayable;
+    }
+
+    public void setAccPayable(boolean accPayable) {
+        this.accPayable = accPayable;
+    }
+
+    public boolean isRegistrationAlert() {
+        return registrationAlert;
+    }
+
+    public void setRegistrationAlert(boolean registrationAlert) {
+        this.registrationAlert = registrationAlert;
+    }
+
+    //========================================================================================================================================
+    public Long getTempId() {
+        return tempId;
+    }
+
+    public void setTempId(Long tempId) {
+        this.tempId = tempId;
+    }
+
+//    public CompanyInfoDTO getCompanyId() {
+//        return companyId;
+//    }
+//
+//    public void setCompanyId(CompanyInfoDTO companyId) {
+//        this.companyId = companyId;
+//    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public Long getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
+    }
+
+    public boolean isRegisteredCompany() {
+        return registeredCompany;
+    }
+
+    public void setRegisteredCompany(boolean registeredCompany) {
+        this.registeredCompany = registeredCompany;
+    }
+
+    public String getRegisterNo() {
+        return registerNo;
+    }
+
+    public void setRegisterNo(String registerNo) {
+        this.registerNo = registerNo;
+    }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
+
+    public String getCompany_no() {
+        return company_no;
+    }
+
+    public void setCompany_no(String company_no) {
+        this.company_no = company_no;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
+    public String getIncdate() {
+        return incdate;
+    }
+
+    public void setIncdate(String incdate) {
+        this.incdate = incdate;
+    }
+
+    public String getAccCodeSep() {
+        return accCodeSep;
+    }
+
+    public void setAccCodeSep(String accCodeSep) {
+        this.accCodeSep = accCodeSep;
+    }
+
+    public Long getIndustryClassificationId() {
+        return industryClassificationId;
+    }
+
+    public void setIndustryClassificationId(Long industryClassificationId) {
+        this.industryClassificationId = industryClassificationId;
+    }
+
+    public Long getBusinessTypeId() {
+        return businessTypeId;
+    }
+
+    public void setBusinessTypeId(Long businessTypeId) {
+        this.businessTypeId = businessTypeId;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public int getGstId() {
+        return gstId;
+    }
+
+    public void setGstId(int gstId) {
+        this.gstId = gstId;
+    }
+
+    public Long getCurrencyId() {
+        return currencyId;
+    }
+
+    public void setCurrencyId(Long currencyId) {
+        this.currencyId = currencyId;
+    }
+
+    public Date getGSTRegisteredDate() {
+        return GSTRegisteredDate;
+    }
+
+    public void setGSTRegisteredDate(Date GSTRegisteredDate) {
+        this.GSTRegisteredDate = GSTRegisteredDate;
+    }
+
+    //=============================================================================================================================================
+    public String getYearclosing() {
+        return yearclosing;
+    }
+
+    public void setYearclosing(String yearclosing) {
+        this.yearclosing = yearclosing;
+    }
+
+    public String getStartperiod() {
+        return startperiod;
+    }
+
+    public void setStartperiod(String startperiod) {
+        this.startperiod = startperiod;
+    }
+
+    public String getClosingperiod() {
+        return closingperiod;
+    }
+
+    public void setClosingperiod(String closingperiod) {
+        this.closingperiod = closingperiod;
+    }
+
+    public String getStartyear() {
+        return startyear;
+    }
+
+    public void setStartyear(String startyear) {
+        this.startyear = startyear;
+    }
+
+    public String getEndyear() {
+        return endyear;
+    }
+
+    public void setEndyear(String endyear) {
+        this.endyear = endyear;
+    }
+
+    public String getClosingMethod() {
+        return closingMethod;
+    }
+
+    public void setClosingMethod(String closingMethod) {
+        this.closingMethod = closingMethod;
+    }
+
+    public int getBufferDays() {
+        return bufferDays;
+    }
+
+    public void setBufferDays(int bufferDays) {
+        this.bufferDays = bufferDays;
+    }
+
+    public String getGstRegisteredDate() {
+        return gstRegisteredDate;
+    }
+
+    public void setGstRegisteredDate(String gstRegisteredDate) {
+        this.gstRegisteredDate = gstRegisteredDate;
+    }
+
+    public String getBufferDate() {
+        return bufferDate;
+    }
+
+    public void setBufferDate(String bufferDate) {
+        this.bufferDate = bufferDate;
+    }
+
+    //==========================================================================================================================================
+    public String getCreateOrSelectAM() {
+        return createOrSelectAM;
+    }
+
+    public void setCreateOrSelectAM(String createOrSelectAM) {
+        this.createOrSelectAM = createOrSelectAM;
+    }
+
+//    public Collection<BasicChartAccounts> getCoaBLDBList() {
+//        return coaBLDBList;
+//    }
+//
+//    public void setCoaBLDBList(Collection<BasicChartAccounts> coaBLDBList) {
+//        this.coaBLDBList = coaBLDBList;
+//    }
+//
+//    public Collection<BasicChartAccounts> getCoaPLDBList() {
+//        return coaPLDBList;
+//    }
+//
+//    public void setCoaPLDBList(Collection<BasicChartAccounts> coaPLDBList) {
+//        this.coaPLDBList = coaPLDBList;
+//    }
+
+    //===================================================================================================================================
+    //=========================================================== Alerts ==============================================================
+    public boolean isAccreceivable() {
+        return accreceivable;
+    }
+
+    public void setAccreceivable(boolean accreceivable) {
+        this.accreceivable = accreceivable;
+    }
+
+    public boolean isAccpayable() {
+        return accpayable;
+    }
+
+    public void setAccpayable(boolean accpayable) {
+        this.accpayable = accpayable;
+    }
+
+    public boolean isRecurring() {
+        return recurring;
+    }
+
+    public void setRecurring(boolean recurring) {
+        this.recurring = recurring;
+    }
+
+    public boolean isRegistrationalert() {
+        return registrationalert;
+    }
+
+    public void setRegistrationalert(boolean registrationalert) {
+        this.registrationalert = registrationalert;
+    }
+
+    public boolean isDebatoralert() {
+        return debatoralert;
+    }
+
+    public void setDebatoralert(boolean debatoralert) {
+        this.debatoralert = debatoralert;
+    }
+
+    public boolean isCreditoralert() {
+        return creditoralert;
+    }
+
+    public void setCreditoralert(boolean creditoralert) {
+        this.creditoralert = creditoralert;
+    }
+
+    public boolean isDueMounthly() {
+        return dueMounthly;
+    }
+
+    public void setDueMounthly(boolean dueMounthly) {
+        this.dueMounthly = dueMounthly;
+    }
+
+    public boolean isDueYearly() {
+        return dueYearly;
+    }
+
+    public void setDueYearly(boolean dueYearly) {
+        this.dueYearly = dueYearly;
+    }
+
+    public Integer getNotaccReceivable() {
+        return notaccReceivable;
+    }
+
+    public void setNotaccReceivable(Integer notaccReceivable) {
+        this.notaccReceivable = notaccReceivable;
+    }
+
+    public Integer getNotaccPayable() {
+        return notaccPayable;
+    }
+
+    public void setNotaccPayable(Integer notaccPayable) {
+        this.notaccPayable = notaccPayable;
+    }
+
+    public Integer getNotRegistration() {
+        return notRegistration;
+    }
+
+    public void setNotRegistration(Integer notRegistration) {
+        this.notRegistration = notRegistration;
+    }
+
+    public Integer getNotGSTReturn() {
+        return notGSTReturn;
+    }
+
+    public void setNotGSTReturn(Integer notGSTReturn) {
+        this.notGSTReturn = notGSTReturn;
+    }
+
+    public Integer getNotDebator() {
+        return notDebator;
+    }
+
+    public void setNotDebator(Integer notDebator) {
+        this.notDebator = notDebator;
+    }
+
+    public Integer getNotCreditor() {
+        return notCreditor;
+    }
+
+    public void setNotCreditor(Integer notCreditor) {
+        this.notCreditor = notCreditor;
+    }
+
+    public Integer getNotDueMonthly() {
+        return notDueMonthly;
+    }
+
+    public void setNotDueMonthly(Integer notDueMonthly) {
+        this.notDueMonthly = notDueMonthly;
+    }
+
+    public Integer getNotDueYearly() {
+        return notDueYearly;
+    }
+
+    public void setNotDueYearly(Integer notDueYearly) {
+        this.notDueYearly = notDueYearly;
+    }
+
+    public Integer getAccreceivabledue() {
+        return accreceivabledue;
+    }
+
+    public void setAccreceivabledue(Integer accreceivabledue) {
+        this.accreceivabledue = accreceivabledue;
+    }
+
+    public Integer getAccpayabledue() {
+        return accpayabledue;
+    }
+
+    public void setAccpayabledue(Integer accpayabledue) {
+        this.accpayabledue = accpayabledue;
+    }
+
+    public Integer getRegistrationdue() {
+        return registrationdue;
+    }
+
+    public void setRegistrationdue(Integer registrationdue) {
+        this.registrationdue = registrationdue;
+    }
+
+    public Integer getGstreturnalertdue() {
+        return gstreturnalertdue;
+    }
+
+    public void setGstreturnalertdue(Integer gstreturnalertdue) {
+        this.gstreturnalertdue = gstreturnalertdue;
+    }
+
+    public String getGstreturnalertduedate() {
+        return gstreturnalertduedate;
+    }
+
+    public void setGstreturnalertduedate(String gstreturnalertduedate) {
+        this.gstreturnalertduedate = gstreturnalertduedate;
+    }
+
+    public boolean isGstReturnAlert() {
+        return gstReturnAlert;
+    }
+
+    public void setGstReturnAlert(boolean gstReturnAlert) {
+        this.gstReturnAlert = gstReturnAlert;
+    }
+
+//    public String getMyFileContentType() {
+//        return myFileContentType;
+//    }
+//
+//    public void setMyFileContentType(String myFileContentType) {
+//        this.myFileContentType = myFileContentType;
+//    }
+//
+//    public String getMyFileFileName() {
+//        return myFileFileName;
+//    }
+//
+//    public void setMyFileFileName(String myFileFileName) {
+//        this.myFileFileName = myFileFileName;
+//    }
+//
+//    public void setImageBlob(byte[] imageBlob) {
+//        this.imageBlob = imageBlob;
+//    }
+
+    public String getCoaCodeImport() {
+        return CoaCodeImport;
+    }
+
+    public void setCoaCodeImport(String CoaCodeImport) {
+        this.CoaCodeImport = CoaCodeImport;
+    }
+
+    public boolean isComprehensiveScheme() {
+        return comprehensiveScheme;
+    }
+
+    public void setComprehensiveScheme(boolean comprehensiveScheme) {
+        this.comprehensiveScheme = comprehensiveScheme;
+    }
+
+    public String getPanNo() {
+        return panNo;
+    }
+
+    public void setPanNo(String panNo) {
+        this.panNo = panNo;
+    }
+
+//    public State getStateId() {
+//        return stateId;
+//    }
+//
+//    public void setStateId(State stateId) {
+//        this.stateId = stateId;
+//    }
+
+//    public MultipartFile getMyFile() {
+//        return myFile;
+//    }
+//
+//    public void setMyFile(MultipartFile myFile) {
+//        this.myFile = myFile;
+//    }
+
+    public Long getStateId() {
+        return stateId;
+    }
+
+    public void setStateId(Long stateId) {
+        this.stateId = stateId;
+    }
+
+    public String getPanNumber() {
+        return panNumber;
+    }
+
+    public void setPanNumber(String panNumber) {
+        this.panNumber = panNumber;
+    }
+}

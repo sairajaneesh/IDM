@@ -1,0 +1,79 @@
+package com.hyva.idm.sass.sasspojo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SaasStatePojo {
+    private Long id;
+    private String stateCode;
+    private String stateName;
+    private String vehicleSeries;
+    private String status;
+    private SassCountryPojo sassCountryPojo;
+    private List<SassCountryPojo> sassCountryPojoList = new ArrayList<>();
+    private String countryId;
+
+    public SassCountryPojo getSassCountryPojo() {
+        return sassCountryPojo;
+    }
+
+    public void setSassCountryPojo(SassCountryPojo sassCountryPojo) {
+        this.sassCountryPojo = sassCountryPojo;
+    }
+
+    public List<SassCountryPojo> getSassCountryPojoList() {
+        return sassCountryPojoList;
+    }
+
+    public void setSassCountryPojoList(List<SassCountryPojo> sassCountryPojoList) {
+        this.sassCountryPojoList = sassCountryPojoList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getVehicleSeries() {
+        return vehicleSeries;
+    }
+
+    public void setVehicleSeries(String vehicleSeries) {
+        this.vehicleSeries = vehicleSeries;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
+    }
+}

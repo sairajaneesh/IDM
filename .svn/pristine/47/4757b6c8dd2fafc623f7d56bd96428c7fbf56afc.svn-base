@@ -1,0 +1,128 @@
+
+/**
+ * Created by azgar.h on 6/22/2017.
+ */
+app.controller('orderListController',
+    function($scope, $http, $location, $filter, Notification, ngTableParams,  $timeout, $window, $cookies){
+        $scope.hiposServerURL = "/services";
+        $scope.word = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+        console.log("ddddddddddddd");
+        $scope.getPageLoadData = function () {
+            $http.post($scope.hiposServerURL + '/getRegistration?license_key=' + "hhhh").then(function (response) {
+                var data = response.data;
+            },function (error) {
+                // Notification.error({message: 'Something went wrong, please try again', positionX: 'center', delay: 2000});
+            })
+        };
+        $scope.getPageLoadData();
+
+        $scope.removeOrderListDetails = function () {
+            $scope.SassOrdersId = "0";
+            $scope.addressText="0";
+            $scope.cmpnynameText="0";
+            $scope.deliveryTypeText="0";
+            $scope.emailText="";
+            $scope.nameText="";
+            $scope.newsLetterText="";
+            $scope.pkgsassidText="";
+            $scope.phoneNoText="";
+            $scope.subidText="";
+
+        };
+
+        $scope.addOrderListPopulate = function () {
+            $scope.SassOrdersId = "";
+            $scope.addressText = "";
+            $scope.cmpnynameText = "";
+            $scope.deliveryTypeText = "";
+            $scope.emailText="";
+            $scope.nameText="";
+            $scope.newsLetterText = "";
+            $scope.phoneNoText="";
+            $scope.pkgsassidText="";
+            $scope.subidText="";
+            $('#order-title').text("Add Order List");
+            $("#add_new_orderlist_modal").modal('show');
+
+        };
+        $scope.getOrderList = function () {
+            $(".loader").css("display", "block");
+            $http.post($scope.hiposServerURL  + "/getOrderList").then(function (response) {
+                var data = response.data.object;
+                console.log(data);
+                $scope.orderList = data;
+
+            }, function (error) {
+                Notification.error({
+                    message: 'Something went wrong, please try again',
+                    positionX: 'center',
+                    delay: 2000
+                });
+            })
+
+        };
+        $scope.getOrderList();
+
+        $scope.saveOrderList= function () {
+            if ($scope.nameText === '') {
+                Notification.warning({message: ' Name can not be empty', positionX: 'center', delay: 2000});
+            }
+            else {
+                var saveOrderListDetails;
+                saveOrderListDetails = {
+                    SassOrdersId: $scope.SassOrdersId,
+                    companyAddress: $scope.addressText,
+                    companyName: $scope.cmpnynameText,
+                    deliveryType: $scope.deliveryTypeText,
+                    companyEmail: $scope.emailText,
+                    customerName: $scope.nameText,
+                    newsletter: $scope.newsLetterText,
+                    packagesSASSId: $scope.pkgsassidText,
+                    companyPhone: $scope.phoneNoText,
+                    subscriptionId: $scope.subscriptionNameId
+                };
+                $http.post("/services/buynowOrderSave",angular.toJson(saveOrderListDetails)).then(function (response) {
+                    var data = response.data;
+                    if(data==""){
+                        Notification.success({message: 'Already exists', positionX: 'center', delay: 2000});
+                    }
+                    else {
+                        $scope.removeOrderListDetails();
+                        $scope.getOrderList();
+                        $("#add_new_orderlist_modal").modal('hide');
+                        Notification.success({
+                            message: 'Order Created  successfully',
+                            positionX: 'center',
+                            delay: 2000
+                        });
+                    }
+                },function (error) {
+                    Notification.error({
+                        message: 'Something went wrong, please try again',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                });
+
+            }
+        };
+
+
+        $scope.getSubscriptionList = function () {
+            $(".loader").css("display", "block");
+            $http.post($scope.hiposServerURL  + "/getSubscriptionList").then(function (response) {
+                var data = response.data.object;
+                $scope.subscriptionList = data;
+                }, function (error) {
+                Notification.error({
+                    message: 'Something went wrong, please try again',
+                    positionX: 'center',
+                    delay: 2000
+                });
+            })
+
+        };
+
+        $scope.getSubscriptionList();
+
+    });

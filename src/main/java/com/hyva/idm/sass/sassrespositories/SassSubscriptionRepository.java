@@ -1,0 +1,18 @@
+package com.hyva.idm.sass.sassrespositories;
+
+import com.hyva.idm.sass.sassentities.SassOrders;
+import com.hyva.idm.sass.sassentities.SassSubscriptions;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface SassSubscriptionRepository extends CrudRepository<SassSubscriptions, Long> {
+
+
+//    List<SassSubscriptions> findBySubscriptionName(String subscriptionName);
+
+    SassSubscriptions findBySubscriptionId(Long subscriptionId);
+    SassSubscriptions findBySubscriptionName(String SubscriptionName );
+    List<SassSubscriptions> getBySubscriptionId(Long subscriptionId);
+   // List<SassSubscriptions> findByUsers(String Users);
+}

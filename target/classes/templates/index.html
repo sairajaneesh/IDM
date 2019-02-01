@@ -1,0 +1,144 @@
+
+
+
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Hi Account Sass Manager</title>
+<link href='./css/style.css' rel="stylesheet" type="text/css" />
+<link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
+	<link href='./css/vendors/bootstrap-datetimepicker.min.css' rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href= './css/css/angular-ui-notification.min.css' type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<link href="css/login.css" rel="stylesheet" type="text/css" />
+	<link href='./css/vendors/bootstrap.min.css' rel="stylesheet" type="text/css" />
+<!--<title>HiAccounts</title>-->
+	</head>
+<body>
+<div class="generic-container">
+	<h2>Hi Accounts SASS Applications</h2>
+
+		<ul class="nav navbar-nav navbar-right hidden-xs">
+			<li>
+				<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false" tabindex="-1">
+					<span class="white">{{userName}}</span>
+					<i class="fa fa-angle-down white" style="font-size: inherit;"></i>
+				</a>
+
+				<ul>
+					<li><a href="#!/login" id="logoutButton"  tabindex="-1"><i class="fa fa-sign-out pull-right"></i> LogOut</a></li>
+				</ul>
+			</li>
+		</ul>
+
+
+
+	<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+		<div id="nav_side_menu" class="menu_section">
+			<ul class="nav side-menu">
+				<li id="sales">
+					<a id="salesLink"  href="#!/orderList"  tabindex="-1"> <i class="fa fa-handshake-o" aria-hidden="true"></i><span>  Order List  </span></a>
+				</li>
+				<li id="payments">
+					<a id="paymentsLink" href="#!/paymentList" tabindex="-1"> <i class="fa fa-shopping-cart" aria-hidden="true"></i><span>  Payments  </span></a>
+				</li>
+				<!--<li id="purchase">-->
+					<!--<a id="purchaseLink" href="#!/permissionList"  tabindex="-1"> <i class="fa fa-shopping-cart" aria-hidden="true"></i><span>  Permission  </span></a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="">Menu 1</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="">Menu 2</a>-->
+				<!--</li>-->
+				<li id="controlpanel">
+					<a id="controlpanelLink" href="#!/controlPanel"  tabindex="-1"> <i class="fa fa-handshake-o" aria-hidden="true"></i> <span> Control Panel </span></a>
+				</li>
+				<li id="Hi connector">
+					<a id="Hi connector" href="#!/Hiconnector"  tabindex="-1"> <i class="fa fa-handshake-o" aria-hidden="true"></i> <span> Hi Connect </span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+<div ng-view="true"></div>
+<!--<script>-->
+    <!--var PAGE_NAME = '<%out.print(request.getAttribute("pageName"));%>'-->
+<!--</script>-->
+<!-- JQuery -->
+<script src="./js/vendors/jquery.min.js"></script>
+<!-- Jquery UI Scripts -->
+<script src="./js/vendors/jquery-ui.js"></script>
+<script src="./js/jspdf.min.js"></script>
+<script src="./js/base64.js"></script>
+<script src="./js/jquery-base64.js"></script>
+<script src="./js/sprintf.js"></script>
+<!-- Bootstrap -->
+<script src="./js/vendors/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script src="./js/vendors/jquery.min.js"></script>
+<!-- Jquery UI Scripts -->
+<script src="./js/vendors/jquery-ui.js"></script>
+<script src="./js/jspdf.min.js"></script>
+<script src="./js/base64.js"></script>
+<script src="./js/jquery-base64.js"></script>
+<script src="./js/sprintf.js"></script>
+<!-- Bootstrap -->
+<script src="./js/vendors/bootstrap.min.js"></script>
+
+
+<!-- Angular js -->
+<script src="./js/vendors/angular.min.js"></script>
+<script src="./js/vendors/angular-route.js"></script>
+<script src="./js/vendors/angular-animate.min.js"></script>
+<script src="./js/vendors/angular-sanitize.min.js"></script>
+<script src="./js/vendors/select2.min.js"></script>
+<script src="./js/vendors/angular-ui-notification.min.js"></script>
+<script src="./js/vendors/angular-cookies.min.js"></script>
+<script type="text/javascript" src="./js/vendors/moment.js"></script>
+<script src="./js/vendors/bootstrap-datetimepicker.min.js"></script>
+<script src="./js/vendors/ng-table.min.js"></script>
+<script src="./js/vendors/Chart.min.js"></script>
+<script src="./js/vendors/angular-chart.js"></script>
+<script src="./js/vendors/bootbox.min.js"></script>
+<script src="./js/vendors/ui-bootstrap-tpls.min.js"></script>
+<script src="./js/vendors/angular-filter.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="./js/main.js"></script>
+<script  src="./js/custom.js"></script>
+<script src="./js/bootstrap-wysiwyg.js"></script>
+<script src="./js/jquery.hotkeys.js"></script>
+<script src="./js/controller/login.js"></script>
+<script src="./js/controller/orderList.js"></script>
+
+<script src="./js/controller/permissionList.js"></script>
+<script src="./js/controller/countryList.js"></script>
+<script src="./js/controller/StateList.js"></script>
+<script src="./js/controller/Payments.js"></script>
+<script src="./js/controller/currency.js"></script>
+<script src="./js/controller/paymentmethod.js"></script>
+<script src="./js/controller/versioncontrol.js"></script>
+<script src="./js/controller/subscription.js"></script>
+<script src="./js/controller/packages.js"></script>
+<script src="./js/controller/customer.js"></script>
+<script src="./js/controller/item.js"></script>
+<script src="./js/controller/PractitionerRegister.js"></script>
+<script src="./js/controller/addOn.js"></script>
+<script src="./js/controller/cartRegistration.js"></script>
+<script src="./js/controller/Practitionerorders.js"></script>
+<script src="./js/controller/user.js"></script>
+<script src="./js/controller/cartcustomerlink.js"></script>
+<script src="./js/controller/customernotif.js"></script>
+<script src="./js/controller/transdata.js"></script>
+<script src="./js/controller/destinationType.js"></script>
+<script src="./js/controller/destinationMap.js"></script>
+<script src="./js/controller/rtrSyncSettings.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+package com.hyva.idm.sass.sasspojo;
+
+
+import java.util.Date;
+
+public class RTRSyncSettingsPojo {
+
+    private Long rtrSyncID;
+    private String companyKeyWord;
+    private String rtrSyncStatus;
+    private String rtrSyncType;
+    private String rtrSyncOption;
+    private Integer rtrSyncSchedulePeriod;
+    private Date createdAt;
+    private Date updatedAt;
+
+    public Long getRtrSyncID() {
+        return rtrSyncID;
+    }
+
+    public void setRtrSyncID(Long rtrSyncID) {
+        this.rtrSyncID = rtrSyncID;
+    }
+
+    public String getCompanyKeyWord() {
+        return companyKeyWord;
+    }
+
+    public void setCompanyKeyWord(String companyKeyWord) {
+        this.companyKeyWord = companyKeyWord;
+    }
+
+    public String getRtrSyncStatus() {
+        return rtrSyncStatus;
+    }
+
+    public void setRtrSyncStatus(String rtrSyncStatus) {
+        this.rtrSyncStatus = rtrSyncStatus;
+    }
+
+    public String getRtrSyncType() {
+        return rtrSyncType;
+    }
+
+    public void setRtrSyncType(String rtrSyncType) {
+        this.rtrSyncType = rtrSyncType;
+    }
+
+    public String getRtrSyncOption() {
+        return rtrSyncOption;
+    }
+
+    public void setRtrSyncOption(String rtrSyncOption) {
+        this.rtrSyncOption = rtrSyncOption;
+    }
+
+    public Integer getRtrSyncSchedulePeriod() {
+        return rtrSyncSchedulePeriod;
+    }
+
+    public void setRtrSyncSchedulePeriod(Integer rtrSyncSchedulePeriod) {
+        this.rtrSyncSchedulePeriod = rtrSyncSchedulePeriod;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+}

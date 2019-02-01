@@ -1,0 +1,75 @@
+package com.hyva.idm.sass.sassentities;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+/**
+ * Created by sahera on 10/27/2017.
+ */
+@Entity
+public class SassProjectModule implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long id;
+    private String projectname;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
+    private String status;
+    @Column(name = "permissions", columnDefinition = "LONGTEXT")
+    private String permissions;
+
+
+    public SassProjectModule() {
+
+    }
+
+    public SassProjectModule(String projectname, String description, String status) {
+        this.projectname = projectname;
+        this.description = description;
+        this.status = status;
+    }
+
+
+    public String getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

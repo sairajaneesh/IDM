@@ -1,0 +1,69 @@
+package com.hyva.idm.sass.sassentities;
+
+
+import com.hyva.idm.entity.BaseEntity;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+public class AddOnn extends BaseEntity<String> {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+  @GenericGenerator(name = "native", strategy = "native")
+  private Long adoneId;
+  @OneToOne
+  private SassSubscriptions subId;
+  private String addonName;
+  private String addonPrice;
+  private String addonPermission;
+  private String status;
+
+  public Long getAdoneId() {
+    return adoneId;
+  }
+
+  public void setAdoneId(Long adoneId) {
+    this.adoneId = adoneId;
+  }
+
+  public SassSubscriptions getSubId() {
+    return subId;
+  }
+
+  public void setSubId(SassSubscriptions subId) {
+    this.subId = subId;
+  }
+
+  public String getAddonName() {
+    return addonName;
+  }
+
+  public void setAddonName(String addonName) {
+    this.addonName = addonName;
+  }
+
+  public String getAddonPrice() {
+    return addonPrice;
+  }
+
+  public void setAddonPrice(String addonPrice) {
+    this.addonPrice = addonPrice;
+  }
+
+  public String getAddonPermission() {
+    return addonPermission;
+  }
+
+  public void setAddonPermission(String addonPermission) {
+    this.addonPermission = addonPermission;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+}

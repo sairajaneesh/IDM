@@ -1,0 +1,28 @@
+package com.hyva.idm.sass.sassentities;
+
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.UUID;
+
+@Entity
+@Data
+public class SassUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int useraccountid;
+    private String userName;
+    private String phone;
+    private String passwordUser;
+    private String full_name;
+    private String email;
+    @Column(length = 2000)
+    private String securityQuestion;
+    private String securityAnswer;
+    private String status;
+    private String companyName;
+    @Column(unique = true, nullable = false)
+    private String userToken = UUID.randomUUID().toString().toUpperCase().replace("-", "").substring(0,16);
+}

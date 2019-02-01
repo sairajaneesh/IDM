@@ -1,0 +1,52 @@
+package com.hyva.idm.sass.sassmapper;
+
+import com.hyva.idm.sass.sassentities.CustomerNotifications;
+import com.hyva.idm.sass.sassentities.SassCustomer;
+import com.hyva.idm.sass.sasspojo.CustomerNotificationsPojo;
+
+
+public class CustomerNotificationMapper {
+    public static CustomerNotifications mapPojoToEntity(CustomerNotificationsPojo customerNotificationsPojo){
+        CustomerNotifications customerNotifications=new CustomerNotifications();
+        customerNotifications.setCustNotiId(customerNotificationsPojo.getCustNotiId());
+        customerNotifications.setFromRegno(customerNotificationsPojo.getFromRegno());
+        customerNotifications.setToRegno(customerNotificationsPojo.getToRegno());
+        customerNotifications.setStatus(customerNotificationsPojo.getStatus());
+        customerNotifications.setTimestamp(customerNotificationsPojo.getTimestamp());
+        customerNotifications.setTypeDoc(customerNotificationsPojo.getTypeDoc());
+        customerNotifications.setCustomerNotification(customerNotificationsPojo.getCustomerNotification());
+        customerNotifications.setUserId(customerNotificationsPojo.getUserId());
+        customerNotifications.setToCompname(customerNotificationsPojo.getToCompname());
+        customerNotifications.setToEmail(customerNotificationsPojo.getToEmail());
+        customerNotifications.setContact(customerNotificationsPojo.getContact());
+        customerNotifications.setAddress(customerNotificationsPojo.getAddress());
+        customerNotifications.setFromCompname(customerNotificationsPojo.getFromCompname());
+        customerNotifications.setFromEmail(customerNotificationsPojo.getFromEmail());
+        customerNotifications.setFromContact(customerNotificationsPojo.getFromContact());
+        customerNotifications.setFromAddress(customerNotificationsPojo.getFromAddress());
+        customerNotifications.setTypeFlag(customerNotificationsPojo.getTypeFlag());
+        customerNotifications.setViewStatus(customerNotificationsPojo.getViewStatus());
+        customerNotifications.setGstIn(customerNotificationsPojo.getGstIn());
+        customerNotifications.setState(customerNotificationsPojo.getState());
+        customerNotifications.setCountry(customerNotificationsPojo.getCountry());
+        customerNotifications.setCurrency(customerNotificationsPojo.getCurrency());
+        customerNotifications.setObjectdata(customerNotificationsPojo.getObjectdata());
+        customerNotifications.setPiNo(customerNotificationsPojo.getPiNo());
+        customerNotifications.setTotaltax(customerNotificationsPojo.getTotaltax());
+        customerNotifications.setTotalcheckoutamt(customerNotificationsPojo.getTotalcheckoutamt());
+        customerNotifications.setTransactionId(customerNotificationsPojo.getTransactionId());
+        customerNotifications.setSiNo(customerNotificationsPojo.getSiNo());
+        customerNotifications.setDestinationmap(customerNotificationsPojo.getDestinationmap());
+        customerNotifications.setSubscriptionType(customerNotificationsPojo.getSubscriptionType());
+        return customerNotifications;
+    }
+
+    public static CustomerNotificationsPojo mapEntityToPojo(CustomerNotificationsPojo customerNotifications){
+        CustomerNotificationsPojo customerNotificationsPojo=new CustomerNotificationsPojo();
+
+
+        return customerNotificationsPojo;
+
+    }
+
+}

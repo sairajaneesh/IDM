@@ -1,0 +1,53 @@
+
+package com.hyva.idm.sass.sassentities;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+public class PermissionGroup {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long pgId;
+    private String featureName; //Sales
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
+    private String saasStatus;
+    private String pgkey;
+
+    public String getPgkey() {
+        return pgkey;
+    }
+
+    public void setPgkey(String pgkey) {
+        this.pgkey = pgkey;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    public PermissionGroup(long pgId){
+        this.pgId = pgId;
+    }
+
+    public PermissionGroup(){}
+
+    public Long getPgId() {return pgId;}
+
+    public void setPgId(Long pgId) {this.pgId = pgId;}
+
+    public String getFeatureName() {return featureName;}
+
+    public void setFeatureName(String featureName) {this.featureName = featureName;}
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
+
+}

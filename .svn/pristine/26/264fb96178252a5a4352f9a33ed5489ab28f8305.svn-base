@@ -1,0 +1,151 @@
+package com.hyva.idm.sass.sassendpoints;
+import com.hyva.idm.sass.sassconstant.HiConnectConstants;
+import com.hyva.idm.pojo.IDMResponse;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Created by azgar on 1/6/18.
+ */
+@RestController
+@RequestMapping(HiConnectConstants.HI_CONNECT_SERVICES)
+public class HiConnectServicesEndPoint {
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_COMPANY_SEARCH,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse searchCompanyNames(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATION_COMPANY_FOR_SUPPLIER,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse setHiConnectNotificationsCompanyForSupplier(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_SET_NOTIFICATION_COMPANY,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse setHiConnectNotificationsCompany(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION_FOR_SUPP,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse confirmAcceptanceOrRejectNotificationsForSupp(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_C0NNECT_ACCEPT_REJECT_NOTIFICATION,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse confirmAcceptanceOrRejectNotifications(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATIONS,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getHiConnectNotifications(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_VERSION  + HiConnectConstants.HI_CONNECT_NOTIFICATION_TRANSACTION_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse getNotificationTransactionData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_BROADCAST_PO_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostPurchaseOrderData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_BROADCAST_SP_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostSupplierPaymentData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+    @RequestMapping(value = HiConnectConstants.HI_CONNECT_BROADCAST_SI_DATA,method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public IDMResponse BroadCastPostSalesInvoiceData(@RequestBody String jsonString) throws JSONException {
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+
+
+
+        return new IDMResponse(HttpStatus.OK.value(), "success");
+    }
+
+
+}

@@ -1,0 +1,79 @@
+package com.hyva.idm.sass.sasspojo;
+
+import java.util.List;
+
+public class PermissionMasterDTO {
+    private Long pmId;
+    private String description;
+    private Long pgId;
+    private Long level2;
+    private Long pMasterId;
+    private String permissionMasterkey;
+    private List<PermissionMasterDTO> level1List;
+    public String getPermissionMasterkey() {
+        return permissionMasterkey;
+    }
+
+    public void setPermissionMasterkey(String permissionMasterkey) {
+        this.permissionMasterkey = permissionMasterkey;
+    }
+
+    public Long getLevel2() {
+        return level2;
+    }
+
+    public void setLevel2(Long level2) {
+        this.level2 = level2;
+    }
+
+    public List<PermissionMasterDTO> getLevel1List() {
+        return level1List;
+    }
+
+    public void setLevel1List(List<PermissionMasterDTO> level1List) {
+        this.level1List = level1List;
+    }
+
+
+    public Long getpMasterId() {
+        return pMasterId;
+    }
+
+    public void setpMasterId(Long pMasterId) {
+        this.pMasterId = pMasterId;
+    }
+
+    public String getSaasStatus() {
+        return saasStatus;
+    }
+
+    public void setSaasStatus(String saasStatus) {
+        this.saasStatus = saasStatus;
+    }
+
+    private String saasStatus;
+    public Long getPgId() {
+        return pgId;
+    }
+
+    public void setPgId(Long pgId) {
+        this.pgId = pgId;
+    }
+
+
+    public Long getPmId() {
+        return pmId;
+    }
+
+    public void setPmId(Long pmId) {
+        this.pmId = pmId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
